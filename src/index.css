@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  /* Couleurs de ton design Onyx Kinetic */
+  --color-primary: #2E5BFF;    /* Le bleu vif */
+  --color-secondary: #6D6BD4;  /* Le violet/lavande */
+  --color-tertiary: #B255A0;   /* Le rose/magenta */
+  --color-neutral: #0A0A0B;    /* Ton fond noir profond */
+  
+  /* Gradations pour le fond et les cartes */
+  --color-card-bg: #111113;
+  --color-border-subtle: #1f1f23;
+
+  /* Typographies du design */
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* On applique le fond neutre par défaut sur tout le site */
+body {
+  background-color: var(--color-neutral);
+  color: white;
+  font-family: var(--font-body);
+}
