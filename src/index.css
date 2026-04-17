@@ -1,24 +1,134 @@
+/* ============================================================
+   TAILWIND V4 — Point d'entrée CSS
+   ============================================================ */
 @import "tailwindcss";
 
+/* --- Polices Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ============================================================
+   THÈME "ONYX KINETIC"
+   @theme permet à Tailwind v4 de générer des classes utilitaires
+   à partir de nos variables personnalisées.
+   ============================================================ */
 @theme {
-  /* Couleurs de ton design Onyx Kinetic */
-  --color-primary: #2E5BFF;    /* Le bleu vif */
-  --color-secondary: #6D6BD4;  /* Le violet/lavande */
-  --color-tertiary: #B255A0;   /* Le rose/magenta */
-  --color-neutral: #0A0A0B;    /* Ton fond noir profond */
-  
-  /* Gradations pour le fond et les cartes */
-  --color-card-bg: #111113;
-  --color-border-subtle: #1f1f23;
+  /* Couleurs principales */
+  --color-onyx:       #0A0A0B;
+  --color-surface:    #111113;
+  --color-surface-2:  #1A1A1E;
+  --color-electric:   #2E5BFF;
+  --color-electric-hover: #4a72ff;
+  --color-violet:     #6D6BD4;
+  --color-white:      #FFFFFF;
+  --color-muted:      #6B7280;
+  --color-border:     rgba(255,255,255,0.08);
 
-  /* Typographies du design */
-  --font-headline: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* Typographies */
+  --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-inter:   'Inter', sans-serif;
+
+  /* Espacements custom si besoin */
+  --spacing-section: 6rem;
 }
 
-/* On applique le fond neutre par défaut sur tout le site */
+/* ============================================================
+   VARIABLES CSS GLOBALES (pour dark/light mode)
+   On utilise data-theme="dark" et data-theme="light"
+   sur le <html> pour switcher le thème.
+   ============================================================ */
+:root[data-theme="dark"] {
+  --bg-primary:    #0A0A0B;
+  --bg-surface:    #111113;
+  --bg-surface-2:  #1A1A1E;
+  --text-primary:  #F9FAFB;
+  --text-secondary:#9CA3AF;
+  --text-muted:    #6B7280;
+  --border-color:  rgba(255,255,255,0.08);
+  --border-hover:  rgba(255,255,255,0.15);
+  --glass-bg:      rgba(255,255,255,0.03);
+  --glass-border:  rgba(255,255,255,0.08);
+  --accent:        #2E5BFF;
+  --accent-hover:  #4a72ff;
+  --accent-soft:   rgba(46,91,255,0.15);
+  --violet:        #6D6BD4;
+}
+
+:root[data-theme="light"] {
+  --bg-primary:    #F8F9FC;
+  --bg-surface:    #FFFFFF;
+  --bg-surface-2:  #F0F2F8;
+  --text-primary:  #0A0A0B;
+  --text-secondary:#4B5563;
+  --text-muted:    #9CA3AF;
+  --border-color:  rgba(0,0,0,0.08);
+  --border-hover:  rgba(0,0,0,0.15);
+  --glass-bg:      rgba(0,0,0,0.02);
+  --glass-border:  rgba(0,0,0,0.08);
+  --accent:        #2E5BFF;
+  --accent-hover:  #1a47e8;
+  --accent-soft:   rgba(46,91,255,0.1);
+  --violet:        #5553B7;
+}
+
+/* ============================================================
+   STYLES GLOBAUX
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: var(--color-neutral);
-  color: white;
-  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
+
+/* --- Scrollbar custom --- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ============================================================
+   CLASSES UTILITAIRES RÉUTILISABLES
+   (Glassmorphism, animations, etc.)
+   ============================================================ */
+
+/* Effet Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Dégradé de texte */
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation d'entrée (fade + slide up) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Délais d'animation pour staggering */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }

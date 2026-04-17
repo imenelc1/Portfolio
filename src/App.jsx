@@ -1,24 +1,55 @@
-import React from 'react';
+/* ============================================================
+   APP.JSX — Point d'assemblage principal
+   
+   Ce fichier :
+   1. Enveloppe l'app dans les Providers (Context)
+   2. Assemble toutes les sections dans l'ordre
+   3. Ne contient PAS de logique — seulement de la composition
+   
+   L'ordre des Providers est important :
+   - ThemeProvider doit être externe (il modifie le <html>)
+   - LangProvider peut être interne
+   ============================================================ */
 
-function App() {
+import { ThemeProvider, LangProvider } from './context/AppContext'
+import Navbar           from './components/layout/Navbar'
+import Footer           from './components/layout/Footer'
+import HeroSection      from './components/sections/HeroSection'
+import ProjectsSection  from './components/sections/ProjectsSection'
+import SkillsSection    from './components/sections/SkillsSection'
+import ExperienceSection from './components/sections/ExperienceSection'
+import ContactSection   from './components/sections/ContactSection'
+import './index.css'
+
+/* ---- Composant interne App (avec les Providers autour) ---- */
+function AppContent() {
   return (
-    <div className="p-10 text-center">
-      {/* Utilisation de la police Headline et de la couleur Primary */}
-      <h1 className="font-headline text-5xl text-primary mb-4">
-        Onyx Kinetic
-      </h1>
-      
-      <p className="font-body text-gray-400 mb-8">
-        Test des couleurs et des typographies.
-      </p>
+    <>
+      <Navbar />
 
-      {/* Boutons avec tes nouvelles couleurs */}
-      <div className="flex gap-4 justify-center">
-        <button className="bg-primary px-6 py-2 rounded-md font-semibold">Primary</button>
-        <button className="bg-secondary px-6 py-2 rounded-md font-semibold">Secondary</button>
-        <button className="bg-tertiary px-6 py-2 rounded-md font-semibold">Tertiary</button>
-      </div>
-    </div>
-  );
+      <main>
+        <HeroSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <ContactSection />
+       
+      </main>
+
+      <Footer />
+    </>
+  )
 }
-export default App;
+
+/* ---- Export principal avec les Providers ---- */
+export default function App() {
+  return (
+    // ThemeProvider → LangProvider → AppContent
+    // Tout composant enfant peut lire ces deux contextes
+    <ThemeProvider>
+      <LangProvider>
+        <AppContent />
+      </LangProvider>
+    </ThemeProvider>
+  )
+}
