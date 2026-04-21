@@ -1,67 +1,29 @@
-/* ============================================================
-   DONNÉES — Projets
-   
-   PRINCIPE D'ARCHITECTURE : Séparation des données et de la vue.
-   
-   Ce fichier contient uniquement les données brutes.
-   Les composants (ProjectCard, ProjectsSection) importent
-   ce tableau et affichent les données via des props.
-   
-   Avantage : pour ajouter un projet, on modifie SEULEMENT
-   ce fichier — aucun composant ne change.
-   
-   Structure d'un projet :
-   - id        : identifiant unique (pour la clé React)
-   - title     : nom du projet
-   - description : objet { fr, en } pour i18n
-   - tags      : technologies utilisées
-   - color     : couleur d'accent du projet
-   - github    : lien GitHub (ou null si privé)
-   - demo      : lien demo live (ou null si pas déployé)
-   - featured  : boolean, affiché en premier si true
-   ============================================================ */
-
 export const projects = [
   {
-    id: 'react-native-app',
-    title: 'React Native Mobile App',
-    description: {
-      fr: 'Application mobile cross-platform avec architecture clean (Repository Pattern, Use Cases). Authentification JWT, state management avec Zustand.',
-      en: 'Cross-platform mobile app with clean architecture (Repository Pattern, Use Cases). JWT authentication, state management with Zustand.',
-    },
-    tags: ['React Native', 'Zustand', 'TypeScript', 'REST API'],
-    color: '#2E5BFF',
-    github: 'https://github.com/',
-    demo: null,
-    featured: true,
+  id: 'maison-design',
+  title: 'Maison Design — E-Commerce',
+  cover: '/projects/maison-design/cover.png',
+   images: [
+      '/projects/maison-design/image1.png',
+      '/projects/maison-design/image2.png',
+      '/projects/maison-design/image3.png',
+      '/projects/maison-design/image4.png',
+      '/projects/maison-design/image5.png',
+      '/projects/maison-design/image6.png',
+    ],
+  description: {
+    fr: 'Application e-commerce complète de meubles et décoration, développée en PHP 8.3 avec Clean Architecture (Domain/Application/Infrastructure). Système de panier en session, gestion des commandes avec livraison, panel admin complet, sécurité CSRF et validation serveur.',
+    en: 'Full e-commerce application for furniture and decoration, built with PHP 8.3 and Clean Architecture (Domain/Application/Infrastructure). Session cart, order management with delivery, complete admin panel, CSRF protection and server-side validation.',
   },
-  {
-    id: 'java-enterprise',
-    title: 'Java Enterprise Backend',
-    description: {
-      fr: 'API REST en Spring Boot avec architecture hexagonale. Gestion des rôles, cache Redis, documentation Swagger, tests unitaires JUnit.',
-      en: 'REST API with Spring Boot and hexagonal architecture. Role management, Redis cache, Swagger documentation, JUnit unit tests.',
-    },
-    tags: ['Java', 'Spring Boot', 'Redis', 'PostgreSQL'],
-    color: '#6D6BD4',
-    github: 'https://github.com/',
-    demo: null,
-    featured: true,
-  },
-  {
-    id: 'ai-automation',
-    title: 'AI Automation Flow',
-    description: {
-      fr: 'Pipeline d\'automatisation avec intégration d\'API IA. Traitement de données en batch, webhooks, interface de monitoring en temps réel.',
-      en: 'Automation pipeline with AI API integration. Batch data processing, webhooks, real-time monitoring interface.',
-    },
-    tags: ['Python', 'FastAPI', 'LangChain', 'React'],
-    color: '#0EA5E9',
-    github: 'https://github.com/',
-    demo: 'https://demo.example.com',
-    featured: true,
-  },
+  tags: ['PHP 8.3', 'Clean Architecture', 'MySQL', 'Tailwind CSS', 'Vanilla JS'],
+  color: '#8E9675',
+  github: 'https://github.com/imenelc1/Maison-Design',
+  demo: null,
+  featured: true,
+},
+ 
 ]
+
 
 
 // Retourne uniquement les projets mis en avant

@@ -1,7 +1,3 @@
-/* ============================================================
-   COMPOSANT — Navbar
-   ============================================================ */
-
 import { useState, useEffect } from 'react'
 import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '../../context/AppContext'
@@ -22,12 +18,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Liens de navigation 
+  // Liens de navigation — tableau d'objets pour rester DRY
   const navLinks = [
-    { label: t('nav.projects'),   href: '#projects'   },
-    { label: t('nav.skills'),     href: '#skills'     },
-    { label: t('nav.experience'), href: '#experience' },
-    { label: t('nav.contact'),    href: '#contact'    },
+    { label: t('nav.projects'),        href: '#projects'        },
+    { label: t('nav.skills'),          href: '#skills'          },
+    { label: t('nav.experience'),      href: '#experience'      },
+    { label: t('nav.certifications'),  href: '#certifications'  },
+    { label: t('nav.contact'),         href: '#contact'         },
   ]
 
   return (
@@ -160,7 +157,7 @@ export default function Navbar() {
           )}
         </button>
 
-        {/* "Me contacter" */}
+        {/* CTA "Me contacter" */}
         <a
           href="#contact"
           className="hide-mobile"

@@ -19,6 +19,7 @@ import ProjectsSection  from './components/sections/ProjectsSection'
 import SkillsSection    from './components/sections/SkillsSection'
 import ExperienceSection from './components/sections/ExperienceSection'
 import ContactSection   from './components/sections/ContactSection'
+import CertificationsSection from './components/sections/Certificationssection'
 import './index.css'
 
 /* ---- Composant interne App (avec les Providers autour) ---- */
@@ -32,6 +33,7 @@ function AppContent() {
         <ProjectsSection />
         <SkillsSection />
         <ExperienceSection />
+        <CertificationsSection />
         <ContactSection />
        
       </main>

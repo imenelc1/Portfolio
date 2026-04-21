@@ -1,27 +1,20 @@
-/* ============================================================
-   INTERNATIONALISATION (i18n)
-   
-   Structure :
-   - "fr" : toutes les traductions françaises
-   - "en" : toutes les traductions anglaises
-
-   ============================================================ */
-
 export const translations = {
 
   /* ==================== FRANÇAIS ==================== */
   fr: {
     // Navigation
     nav: {
-      projects:   'Projets',
-      skills:     'Compétences',
-      experience: 'Parcours',
-      contact:    'Contact',
-      cta:        'Me contacter',
+      projects:        'Projets',
+      skills:          'Compétences',
+      experience:      'Parcours',
+      certifications:  'Certifications',
+      contact:         'Contact',
+      cta:             'Me contacter',
     },
 
     // Section Hero (page d'accueil)
     hero: {
+      greeting:    'Bonjour, je suis',
       name:        'Lakhdar Chaouch Imene',
       title:       'Architecte Logiciel & Développeuse Full Stack',
       description: `Étudiante en 4ème année de Génie Logiciel, passionnée par la
@@ -34,11 +27,15 @@ export const translations = {
 
     // Section Projets
     projects: {
-      title:    'Projets d\'Architecture',
-      subtitle: 'Chaque projet est une opportunité d\'apprendre et d\'appliquer des patterns solides.',
+      title:     'Projets d\'Architecture',
+      subtitle:  'Chaque projet est une opportunité d\'apprendre et d\'appliquer des patterns solides.',
       view_code: 'Code',
       view_demo: 'Demo',
       view_all:  'Voir tous les projets',
+      view_images: 'Captures d\'écran',
+      close:     'Fermer',
+      image_of:  'Image',   
+      of:        'sur',
     },
 
     // Section Compétences
@@ -55,6 +52,23 @@ export const translations = {
       title:    'Parcours Professionnel',
       subtitle: 'Mon évolution dans le monde du développement.',
       present:  'Présent',
+    },
+
+    // Section Certifications
+    certifications: {
+      title:       'Certifications & Badges',
+      subtitle:    'Apprentissage continu au-delà des cours.',
+      verified:    'Vérifiable en ligne',
+      in_progress: 'En cours',
+      view_badge:  'Voir le badge',
+    },
+
+    certifications: {
+      title:       'Certifications & Badges',
+      subtitle:    'Continuous learning beyond the classroom.',
+      verified:    'Verifiable online',
+      in_progress: 'In progress',
+      view_badge:  'View badge',
     },
 
     // Section Contact
@@ -85,14 +99,16 @@ export const translations = {
   /* ==================== ENGLISH ==================== */
   en: {
     nav: {
-      projects:   'Projects',
-      skills:     'Skills',
-      experience: 'Experience',
-      contact:    'Contact',
-      cta:        'Contact me',
+      projects:        'Projects',
+      skills:          'Skills',
+      experience:      'Experience',
+      certifications:  'Certifications',
+      contact:         'Contact',
+      cta:             'Contact me',
     },
 
     hero: {
+      greeting:    'Hello, I am',
       name:        'Lakhdar Chaouch Imene',
       title:       'Software Architect & Full Stack Developer',
       description: `4th year Software Engineering student, passionate about building
@@ -104,11 +120,15 @@ export const translations = {
     },
 
     projects: {
-      title:    'Architecture Projects',
-      subtitle: 'Each project is an opportunity to learn and apply solid patterns.',
-      view_code: 'Code',
-      view_demo: 'Demo',
-      view_all:  'View all projects',
+      title:       'Architecture Projects',
+      subtitle:    'Each project is an opportunity to learn and apply solid patterns.',
+      view_code:   'Code',
+      view_demo:   'Demo',
+      view_all:    'View all projects',
+      view_images: 'Screenshots',
+      close:       'Close',
+      image_of:    'Image',
+      of:          'of',
     },
 
     skills: {
