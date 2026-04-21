@@ -46,35 +46,7 @@ function CertificationCard({ cert, t, lang }) {
         alignItems: 'flex-start',
         gap: '1rem',
       }}>
-        {/* Badge image ou icône fallback */}
-        <div style={{
-          width: '64px',
-          height: '64px',
-          borderRadius: '12px',
-          background: cert.color + '15',
-          border: `1px solid ${cert.color}30`,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexShrink: 0,
-          overflow: 'hidden',
-        }}>
-          <img
-            src={cert.image}
-            alt={cert.title}
-            style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }}
-            onError={e => {
-              // Si l'image n'existe pas → afficher l'icône Lucide
-              e.target.style.display = 'none'
-              e.target.nextSibling.style.display = 'flex'
-            }}
-          />
-          {/* Fallback icône */}
-          <div style={{ display: 'none', color: cert.color }}>
-            <DynamicIcon name={cert.issuerIcon} size={28} strokeWidth={1.5} />
-          </div>
-        </div>
-
+       
         {/* Titre + émetteur */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <h3 style={{
