@@ -1,9 +1,22 @@
 export const certifications = [
+    {
+    id: 'az-900',
+    title: 'Azure Fundamentals',
+    issuer: 'Microsoft',
+    issuerIcon: 'Cloud',
+    type: 'certification',          // ← 'certification' ou 'badge'
+    date: { fr: 'Jan 2024', en: 'Jan 2024' },
+    badgeUrl: 'https://learn.microsoft.com/en-us/credentials/',
+    color: '#0078D4',
+    verified: true,
+    inProgress: false,
+  },
   {
     id: 'azure-cloud-concepts',
     title: 'Décrire le cloud computing',
     issuer: 'Microsoft',
     issuerIcon: 'Cloud',
+    type: 'badge', 
     date: { fr: 'Avril 2026', en: 'April 2026' },
     badgeUrl: 'https://learn.microsoft.com/api/achievements/share/fr-fr/imenelakhdarchaouch-7822/8239V5DW?sharingId=94A323555CAF0631',
     color: '#0078D4',
@@ -15,6 +28,7 @@ export const certifications = [
     title: 'Décrire les types de services cloud',
     issuer: 'Microsoft',
     issuerIcon: 'Cloud',
+    type: 'badge', 
     date: { fr: 'Avril 2026', en: 'April 2026' },
     badgeUrl: 'https://learn.microsoft.com/api/achievements/share/fr-fr/imenelakhdarchaouch-7822/2J7RUTPV?sharingId=94A323555CAF0631',
     color: '#0078D4',
@@ -26,6 +40,7 @@ export const certifications = [
     title: 'Décrire les avantages des services cloud',
     issuer: 'Microsoft',
     issuerIcon: 'Cloud',
+    type: 'badge', 
     date: { fr: 'Avril 2026', en: 'April 2026' },
     badgeUrl: 'https://learn.microsoft.com/api/achievements/share/fr-fr/imenelakhdarchaouch-7822/VTZA5DKM?sharingId=94A323555CAF0631',
     color: '#0078D4',

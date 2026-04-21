@@ -2,8 +2,8 @@ export const projects = [
   {
   id: 'maison-design',
   title: 'Maison Design — E-Commerce',
-  cover: '/projects/maison-design/cover.png',
    images: [
+      '/projects/maison-design/cover.png',
       '/projects/maison-design/image1.png',
       '/projects/maison-design/image2.png',
       '/projects/maison-design/image3.png',

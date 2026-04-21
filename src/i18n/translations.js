@@ -1,3 +1,8 @@
+/* ============================================================
+   INTERNATIONALISATION (i18n)
+   
+   ============================================================ */
+
 export const translations = {
 
   /* ==================== FRANÇAIS ==================== */
@@ -56,19 +61,25 @@ export const translations = {
 
     // Section Certifications
     certifications: {
-      title:       'Certifications & Badges',
-      subtitle:    'Apprentissage continu au-delà des cours.',
-      verified:    'Vérifiable en ligne',
-      in_progress: 'En cours',
-      view_badge:  'Voir le badge',
+      title:        'Certifications & Badges',
+      subtitle:     'Apprentissage continu au-delà des cours.',
+      tab_certs:    'Certifications',
+      tab_badges:   'Badges',
+      verified:     'Vérifiable en ligne',
+      in_progress:  'En cours',
+      view_badge:   'Voir le badge',
+      coming_soon:  'Bientôt...',
     },
 
     certifications: {
-      title:       'Certifications & Badges',
-      subtitle:    'Continuous learning beyond the classroom.',
-      verified:    'Verifiable online',
-      in_progress: 'In progress',
-      view_badge:  'View badge',
+      title:        'Certifications & Badges',
+      subtitle:     'Continuous learning beyond the classroom.',
+      tab_certs:    'Certifications',
+      tab_badges:   'Badges',
+      verified:     'Verifiable online',
+      in_progress:  'In progress',
+      view_badge:   'View badge',
+      coming_soon:  'Coming soon...',
     },
 
     // Section Contact
