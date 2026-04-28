@@ -16,7 +16,6 @@ export const programmingLanguages = [
 /* --- Frameworks & Outils --- */
 export const tools = [
   { name: 'React',        category: 'Frontend', icon: 'Atom'         },
-  { name: 'Spring Boot',  category: 'Backend',  icon: 'Leaf'         },
   { name: 'React Native', category: 'Mobile',   icon: 'Smartphone'   },
   { name: 'Node.js',      category: 'Backend',  icon: 'Server'       },
   { name: 'Docker',       category: 'DevOps',   icon: 'Container'    },
@@ -24,14 +23,13 @@ export const tools = [
   { name: 'PostgreSQL',   category: 'Database', icon: 'Database'     },
   { name: 'MongoDB',      category: 'Database', icon: 'CircleStack'  },
   { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush'   },
-  { name: 'Figma',        category: 'Design',   icon: 'Figma'        },
 ]
 
 export const humanLanguages = [
   {
     name:    { fr: 'Arabe',    en: 'Arabic'   },
     level:   { fr: 'Natif',    en: 'Native'   },
-    icon:    'MessageCircle', // pas de flag → icône neutre
+    icon:    'MessageCircle', 
     percent: 100,
   },
   {
@@ -53,57 +51,57 @@ export const humanLanguages = [
    ============================================================ */
 export const experiences = [
   {
-    id: 'se-intern',
+    id: 'internship-cevital',
     title: {
-      fr: 'Software Engineer Intern',
-      en: 'Software Engineer Intern',
+      fr: 'Stagiaire en Informatique Industrielle',
+      en: 'Industrial IT Intern',
     },
-    company: 'Tech Startup — Alger',
+    company: 'Cevital Agro-industrie — Béjaïa',
     period: {
-      start: { fr: 'Juin 2024', en: 'June 2024' },
-      end:   null, // null = "Présent" / "Present"
+      start: { fr: 'Mars 2026', en: 'March 2026' },
+      end:   { fr: 'Mars 2026', en: 'March 2026' },
     },
     description: {
-      fr: 'Développement d\'une API REST avec Spring Boot. Mise en place de l\'architecture hexagonale et des tests unitaires.',
-      en: 'Development of a REST API with Spring Boot. Implementation of hexagonal architecture and unit tests.',
+      fr: 'Stage d\'observation portant sur l\'analyse des flux de données industriels et l\'automatisation des processus au sein du complexe agro-alimentaire.',
+      en: 'Observation internship focused on analyzing industrial data flows and process automation within the food processing complex.',
     },
-    tags: ['Spring Boot', 'Java', 'PostgreSQL'],
+    tags: ['Informatique Industrielle', 'Analyse de données', 'Automatisation'],
     type: 'work',
   },
   {
-    id: 'gl-student',
+    id: 'engineering-student',
     title: {
-      fr: 'Étudiante en Génie Logiciel',
+      fr: 'Élève Ingénieur en Génie Logiciel',
       en: 'Software Engineering Student',
     },
-    company: 'Université — 4ème année',
+    company: 'Université de Béjaïa',
     period: {
-      start: { fr: 'Sept 2021', en: 'Sept 2021' },
-      end:   null,
+      start: { fr: 'Sept 2022', en: 'Sept 2022' },
+      end:   { fr: 'Juin 2027', en: 'June 2027' },
     },
     description: {
-      fr: 'Formation en architecture logicielle, base de données, algorithmique avancée, et génie logiciel agile.',
-      en: 'Training in software architecture, databases, advanced algorithms, and agile software engineering.',
+      fr: 'Cycle d\'ingénieur de 5 ans spécialisé en Génie Logiciel. Focus sur l\'architecture système, le développement mobile (React Native) et les technologies Cloud.',
+      en: '5-year engineering cycle specialized in Software Engineering. Focus on system architecture, mobile development (React Native), and Cloud technologies.',
     },
-    tags: ['Architecture', 'Agile', 'Algorithmique'],
+    tags: ['Génie Logiciel', 'Java', 'React Native', 'Cloud'],
     type: 'education',
   },
   {
-    id: 'fullstack-junior',
+    id: 'bac-degree',
     title: {
-      fr: 'Full Stack Junior',
-      en: 'Junior Full Stack Developer',
+      fr: 'Baccalauréat',
+      en: 'High School Diploma',
     },
-    company: 'Digital Agency',
+    company: 'Lycée Chouhada Annani — Béjaïa',
     period: {
-      start: { fr: 'Jan 2023', en: 'Jan 2023' },
-      end:   { fr: 'Mai 2024', en: 'May 2024' },
+      start: { fr: 'Sept 2019', en: 'Sept 2019' },
+      end:   { fr: 'Juin 2022', en: 'June 2022' },
     },
     description: {
-      fr: 'Conception et développement d\'interfaces React, intégration d\'APIs, optimisation des performances.',
-      en: 'Design and development of React interfaces, API integration, performance optimization.',
+      fr: 'Diplôme du Baccalauréat avec mention.',
+      en: 'High School Diploma with honors.',
     },
-    tags: ['React', 'Node.js', 'MongoDB'],
-    type: 'work',
+    tags: ['Sciences', 'Mathématiques'],
+    type: 'education',
   },
 ]

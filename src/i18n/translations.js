@@ -86,12 +86,6 @@ export const translations = {
     contact: {
       title:       'Travaillons Ensemble',
       subtitle:    'Vous avez un projet ? Je suis disponible pour des collaborations.',
-      email_label: 'Votre email',
-      message_label: 'Votre message',
-      send:        'Envoyer le message',
-      sending:     'Envoi en cours...',
-      success:     'Message envoyé !',
-      or_find_me:  'Ou retrouvez-moi sur',
     },
 
     // Footer
@@ -159,12 +153,7 @@ export const translations = {
     contact: {
       title:         'Let\'s Work Together',
       subtitle:      'Have a project in mind? I\'m open to collaborations.',
-      email_label:   'Your email',
-      message_label: 'Your message',
-      send:          'Send message',
-      sending:       'Sending...',
-      success:       'Message sent!',
-      or_find_me:    'Or find me on',
+     
     },
 
     footer: {

@@ -5,7 +5,7 @@
 import { useState } from 'react'
 import { useLang } from '../../context/AppContext'
 import SectionHeader from '../ui/SectionHeader'
-
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 export default function ContactSection() {
   const { t } = useLang()
 
@@ -54,9 +54,21 @@ export default function ContactSection() {
   }
 
   const socialLinks = [
-    { name: 'GitHub',   url: 'https://github.com/',    icon: '⌨️' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/',  icon: '💼' },
-    { name: 'Twitter',  url: 'https://twitter.com/',   icon: '🐦' },
+    { 
+      name: 'Email', 
+      url: 'mailto:lakhdarchaouchimene@gmail.com', 
+      icon: <FaEnvelope size={20} /> 
+    },
+    { 
+      name: 'GitHub', 
+      url: 'https://github.com/imenelc1', 
+      icon: <FaGithub size={20} /> 
+    },
+    { 
+      name: 'LinkedIn', 
+      url: 'https://www.linkedin.com/in/imene-lakhdar-chaouch-234751385?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+      icon: <FaLinkedin size={20} /> 
+    },
   ]
 
   return (
@@ -75,103 +87,10 @@ export default function ContactSection() {
           align="center"
         />
 
-        {/* Formulaire */}
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-          }}
-        >
-          {/* Email */}
-          <div>
-            <label style={{
-              display: 'block',
-              marginBottom: '0.5rem',
-              fontSize: '0.875rem',
-              color: 'var(--text-secondary)',
-              fontFamily: 'var(--font-grotesk)',
-              fontWeight: 500,
-            }}>
-              {t('contact.email_label')}
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              style={inputStyle}
-              onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-              onBlur={e => e.target.style.borderColor = 'var(--border-color)'}
-              placeholder="vous@exemple.com"
-            />
-          </div>
-
-          {/* Message */}
-          <div>
-            <label style={{
-              display: 'block',
-              marginBottom: '0.5rem',
-              fontSize: '0.875rem',
-              color: 'var(--text-secondary)',
-              fontFamily: 'var(--font-grotesk)',
-              fontWeight: 500,
-            }}>
-              {t('contact.message_label')}
-            </label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              style={{
-                ...inputStyle,
-                resize: 'vertical',
-                minHeight: '120px',
-              }}
-              onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-              onBlur={e => e.target.style.borderColor = 'var(--border-color)'}
-              placeholder="Bonjour, j'ai un projet..."
-            />
-          </div>
-
-          {/* Bouton d'envoi */}
-          <button
-            type="submit"
-            disabled={status !== 'idle'}
-            style={{
-              background: status === 'success' ? '#22c55e' : 'var(--accent)',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '10px',
-              padding: '0.875rem',
-              fontSize: '0.9375rem',
-              fontFamily: 'var(--font-grotesk)',
-              fontWeight: 600,
-              cursor: status !== 'idle' ? 'not-allowed' : 'pointer',
-              opacity: status === 'sending' ? 0.7 : 1,
-              transition: 'all 0.2s',
-            }}
-          >
-            {status === 'idle'    && t('contact.send')}
-            {status === 'sending' && t('contact.sending')}
-            {status === 'success' && `✓ ${t('contact.success')}`}
-          </button>
-        </form>
-
+      
         {/* Liens sociaux */}
         <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-          <p style={{
-            fontSize: '0.875rem',
-            color: 'var(--text-muted)',
-            marginBottom: '1rem',
-            fontFamily: 'var(--font-grotesk)',
-          }}>
-            {t('contact.or_find_me')}
-          </p>
+         
           <div style={{
             display: 'flex',
             justifyContent: 'center',
