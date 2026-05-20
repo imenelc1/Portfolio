@@ -21,6 +21,27 @@ export const projects = [
   demo: null,
   featured: true,
 },
+{
+  id: 'sysbank',
+  title: 'SysBank — Gestion Bancaire',
+  images: [
+    '/projects/sysbank/connexion.png',
+    '/projects/sysbank/dashboard.png',
+    '/projects/sysbank/stats.png',
+    '/projects/sysbank/comptes.png',
+    '/projects/sysbank/creercompte.png',
+    '/projects/sysbank/gestionbanquier.png',
+  ],
+  description: {
+    fr: 'Application de bureau JavaFX complète pour la gestion bancaire. Comprend un tableau de bord analytique, un système multi-rôles (Admin/Banquier), une gestion des transactions atomiques et un thème dynamique clair/sombre. Architecture robuste basée sur les patterns MVC, Service et Repository.',
+    en: 'Comprehensive JavaFX desktop application for banking management. Features an analytical dashboard, multi-role system (Admin/Banker), atomic transaction management, and dynamic light/dark mode. Built with a robust architecture using MVC, Service, and Repository patterns.',
+  },
+  tags: ['Java 17', 'JavaFX', 'MySQL', 'Maven', 'JDBC'],
+  color: '#2D3E50', 
+  github: 'https://github.com/imenelc1/GestionBanque',
+  demo: null,
+  featured: true,
+},
  
 ]
 

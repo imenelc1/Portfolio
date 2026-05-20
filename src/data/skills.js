@@ -28,21 +28,33 @@ export const tools = [
 export const humanLanguages = [
   {
     name:    { fr: 'Arabe',    en: 'Arabic'   },
-    level:   { fr: 'Natif',    en: 'Native'   },
+    level:   { fr: 'Langue maternelle', en: 'Native' },
     icon:    'MessageCircle', 
     percent: 100,
   },
   {
+    name:    { fr: 'Kabyle',   en: 'Kabyle'   },
+    level:   { fr: 'Langue maternelle', en: 'Native' },
+    icon:    'Languages', 
+    percent: 100,
+  },
+  {
     name:    { fr: 'Français', en: 'French'   },
-    level:   { fr: 'Courant',  en: 'Fluent'   },
+    level:   { fr: 'Intermédiaire Avancé (B2)', en: 'Upper-Intermediate (B2)' },
     icon:    'BookOpen',
-    percent: 90,
+    percent: 80, 
   },
   {
     name:    { fr: 'Anglais',  en: 'English'  },
-    level:   { fr: 'Avancé',   en: 'Advanced' },
+    level:   { fr: 'Intermédiaire Supérieur (B2)', en: 'Upper-Intermediate (B2)' },
     icon:    'Globe',
-    percent: 80,
+    percent: 70, 
+  },
+  {
+    name:    { fr: 'Turc',     en: 'Turkish'  },
+    level:   { fr: 'Intermédiaire (B1)', en: 'Intermediate (B1)' },
+    icon:    'Compass',
+    percent: 65, 
   },
 ]
 

@@ -71,4 +71,16 @@ export const certifications = [
     verified: true,
     inProgress: false,
   },
+  {
+    id: 'efset-english-certification',
+    type: 'certification',
+    title: 'EF SET English Certificate (B2 Upper Intermediate)',
+    issuer: 'EF Education First',
+    issuerIcon: 'Globe', 
+    date: { fr: '19 Mai 2026', en: 'May 19, 2026' },
+    badgeUrl: 'https://cert.efset.org/en/Nnue8j', 
+    color: '#00B4B4', 
+    verified: true,
+    inProgress: false,
+  },
 ]
