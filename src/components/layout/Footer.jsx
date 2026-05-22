@@ -25,7 +25,7 @@ export default function Footer() {
           color: 'var(--text-primary)',
           letterSpacing: '-0.02em',
         }}>
-          THE <span style={{ color: 'var(--accent)' }}>ARCHITECT</span>
+          Imene <span style={{ color: 'var(--accent)' }}>LC</span>
         </span>
 
         {/* Tagline */}

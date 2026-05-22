@@ -1,77 +1,64 @@
-/* ============================================================
-   TAILWIND V4 — Point d'entrée CSS
-   ============================================================ */
 @import "tailwindcss";
-
-/* --- Polices Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* ============================================================
-   THÈME "ONYX KINETIC"
-   @theme permet à Tailwind v4 de générer des classes utilitaires
-   à partir de nos variables personnalisées.
-   ============================================================ */
 @theme {
-  /* Couleurs principales */
-  --color-onyx:       #0A0A0B;
-  --color-surface:    #111113;
-  --color-surface-2:  #1A1A1E;
-  --color-electric:   #2E5BFF;
+  --color-onyx:           #0A0A0B;
+  --color-surface:        #111113;
+  --color-surface-2:      #1A1A1E;
+  --color-electric:       #2E5BFF;
   --color-electric-hover: #4a72ff;
-  --color-violet:     #6D6BD4;
-  --color-white:      #FFFFFF;
-  --color-muted:      #6B7280;
-  --color-border:     rgba(255,255,255,0.08);
-
-  /* Typographies */
-  --font-grotesk: 'Space Grotesk', sans-serif;
-  --font-inter:   'Inter', sans-serif;
-
-  /* Espacements custom si besoin */
-  --spacing-section: 6rem;
+  --color-violet:         #6D6BD4;
+  --color-white:          #FFFFFF;
+  --color-muted:          #6B7280;
+  --color-border:         rgba(255,255,255,0.08);
+  --font-grotesk:         'Space Grotesk', sans-serif;
+  --font-inter:           'Inter', sans-serif;
 }
 
 /* ============================================================
-   VARIABLES CSS GLOBALES (pour dark/light mode)
-   On utilise data-theme="dark" et data-theme="light"
-   sur le <html> pour switcher le thème.
+   DARK MODE
    ============================================================ */
 :root[data-theme="dark"] {
   --bg-primary:    #0A0A0B;
   --bg-surface:    #111113;
   --bg-surface-2:  #1A1A1E;
   --text-primary:  #F9FAFB;
-  --text-secondary:#9CA3AF;
-  --text-muted:    #6B7280;
+  --text-secondary:#C1C9D6;
+  --text-muted:    #8B95A1;
   --border-color:  rgba(255,255,255,0.08);
-  --border-hover:  rgba(255,255,255,0.15);
+  --border-hover:  rgba(255,255,255,0.18);
   --glass-bg:      rgba(255,255,255,0.03);
   --glass-border:  rgba(255,255,255,0.08);
   --accent:        #2E5BFF;
   --accent-hover:  #4a72ff;
   --accent-soft:   rgba(46,91,255,0.15);
   --violet:        #6D6BD4;
-}
-
-:root[data-theme="light"] {
-  --bg-primary:    #F8F9FC;
-  --bg-surface:    #FFFFFF;
-  --bg-surface-2:  #F0F2F8;
-  --text-primary:  #0A0A0B;
-  --text-secondary:#4B5563;
-  --text-muted:    #9CA3AF;
-  --border-color:  rgba(0,0,0,0.08);
-  --border-hover:  rgba(0,0,0,0.15);
-  --glass-bg:      rgba(0,0,0,0.02);
-  --glass-border:  rgba(0,0,0,0.08);
-  --accent:        #2E5BFF;
-  --accent-hover:  #1a47e8;
-  --accent-soft:   rgba(46,91,255,0.1);
-  --violet:        #5553B7;
+  --grid-color:    rgba(255,255,255,0.03);
 }
 
 /* ============================================================
-   STYLES GLOBAUX
+   LIGHT MODE — couleurs renforcées pour lisibilité
+   ============================================================ */
+:root[data-theme="light"] {
+  --bg-primary:    #F4F6FB;
+  --bg-surface:    #FFFFFF;
+  --bg-surface-2:  #EDF0F7;
+  --text-primary:  #0D0F14;
+  --text-secondary:#374151;
+  --text-muted:    #5A6474;
+  --border-color:  rgba(0,0,0,0.09);
+  --border-hover:  rgba(0,0,0,0.18);
+  --glass-bg:      rgba(0,0,0,0.025);
+  --glass-border:  rgba(0,0,0,0.09);
+  --accent:        #1E4BEF;
+  --accent-hover:  #1238CC;
+  --accent-soft:   rgba(30,75,239,0.09);
+  --violet:        #4A48B5;
+  --grid-color:    rgba(0,0,0,0.04);
+}
+
+/* ============================================================
+   RESET & GLOBAL
    ============================================================ */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -79,9 +66,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--bg-primary);
@@ -91,17 +76,31 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Scrollbar custom --- */
+/* ============================================================
+   BACKGROUND — grille subtile sur toute la page
+   ============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+main, nav, footer { position: relative; z-index: 1; }
+
+/* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
 /* ============================================================
-   CLASSES UTILITAIRES RÉUTILISABLES
-   (Glassmorphism, animations, etc.)
+   GLASSMORPHISM
    ============================================================ */
-
-/* Effet Glassmorphism */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
@@ -109,7 +108,9 @@ body {
   border: 1px solid var(--glass-border);
 }
 
-/* Dégradé de texte */
+/* ============================================================
+   TEXTE GRADIENT
+   ============================================================ */
 .text-gradient {
   background: linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
   -webkit-background-clip: text;
@@ -117,18 +118,53 @@ body {
   background-clip: text;
 }
 
-/* Animation d'entrée (fade + slide up) */
+/* ============================================================
+   ANIMATIONS D'ENTRÉE
+   ============================================================ */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in-up {
+  opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Délais d'animation pour staggering */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
+
+/* ============================================================
+   SCROLL REVEAL — éléments qui apparaissent au défilement
+   Activés via JS (IntersectionObserver dans main.jsx)
+   ============================================================ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Délais de stagger pour les listes d'éléments */
+.scroll-reveal:nth-child(1) { transition-delay: 0.05s; }
+.scroll-reveal:nth-child(2) { transition-delay: 0.12s; }
+.scroll-reveal:nth-child(3) { transition-delay: 0.19s; }
+.scroll-reveal:nth-child(4) { transition-delay: 0.26s; }
+.scroll-reveal:nth-child(5) { transition-delay: 0.33s; }
+
+/* ============================================================
+   RESPONSIVE HELPERS
+   ============================================================ */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: flex !important; }
+}
+@media (min-width: 769px) {
+  .show-mobile { display: none !important; }
+}

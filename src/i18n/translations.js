@@ -1,13 +1,11 @@
 /* ============================================================
    INTERNATIONALISATION (i18n)
-   
    ============================================================ */
 
 export const translations = {
 
   /* ==================== FRANÇAIS ==================== */
   fr: {
-    // Navigation
     nav: {
       projects:        'Projets',
       skills:          'Compétences',
@@ -17,49 +15,43 @@ export const translations = {
       cta:             'Me contacter',
     },
 
-    // Section Hero (page d'accueil)
     hero: {
       greeting:    'Bonjour, je suis',
       name:        'Lakhdar Chaouch Imene',
-      title:       'Architecte Logiciel & Développeuse Full Stack',
-      description: `Étudiante en 4ème année de Génie Logiciel, passionnée par la
-                    création d'architectures propres, scalables et élégantes.
-                    Je conçois des solutions qui allient technique et design.`,
+      title:       'Étudiante Ingénieure en Génie Logiciel',
+      description: `ING4 à l'Université de Béjaïa. Je conçois des architectures logicielles,
+                    décompose les problèmes complexes en modules clairs, et pilote les outils
+                    modernes — dont l'IA — pour transformer une idée en application fonctionnelle.`,
       cta_primary:   'Voir mes projets',
       cta_secondary: 'Télécharger CV',
       scroll_hint:   'Défiler pour explorer',
     },
 
-    // Section Projets
     projects: {
-      title:     'Projets d\'Architecture',
-      subtitle:  'Chaque projet est une opportunité d\'apprendre et d\'appliquer des patterns solides.',
-      view_code: 'Code',
-      view_demo: 'Demo',
-      view_all:  'Voir tous les projets',
+      title:       'Projets',
+      subtitle:    'Projets personnels construits de A à Z — conception, architecture et réalisation.',
+      view_code:   'Code',
+      view_demo:   'Demo',
+      view_all:    'Voir tous les projets sur GitHub',
       view_images: 'Captures d\'écran',
-      close:     'Fermer',
-      image_of:  'Image',   
-      of:        'sur',
+      close:       'Fermer',
+      image_of:    'Image',
+      of:          'sur',
     },
 
-    // Section Compétences
     skills: {
-      title:    'Langues & Écosystème',
-      subtitle: 'Technologies que j\'utilise au quotidien.',
-      prog_langs:  'Langages de Programmation',
-      human_langs: 'Langues Humaines',
-      tools:       'Outils & Frameworks',
+      title:       'Compétences',
+      subtitle:    'Technologies que j\'utilise au quotidien.',
+      human_langs: 'Langues',
+      tools:       'Langages, Outils & Frameworks',
     },
 
-    // Section Parcours
     experience: {
-      title:    'Parcours Professionnel',
+      title:    'Parcours',
       subtitle: 'Mon évolution dans le monde du développement.',
       present:  'Présent',
     },
 
-    // Section Certifications
     certifications: {
       title:        'Certifications & Badges',
       subtitle:     'Apprentissage continu au-delà des cours.',
@@ -71,30 +63,16 @@ export const translations = {
       coming_soon:  'Bientôt...',
     },
 
-    certifications: {
-      title:        'Certifications & Badges',
-      subtitle:     'Continuous learning beyond the classroom.',
-      tab_certs:    'Certifications',
-      tab_badges:   'Badges',
-      verified:     'Verifiable online',
-      in_progress:  'In progress',
-      view_badge:   'View badge',
-      coming_soon:  'Coming soon...',
-    },
-
-    // Section Contact
     contact: {
-      title:       'Travaillons Ensemble',
-      subtitle:    'Vous avez un projet ? Je suis disponible pour des collaborations.',
+      title:    'Me Contacter',
+      subtitle: 'Ouverte aux opportunités, collaborations et échanges.',
     },
 
-    // Footer
     footer: {
       tagline: 'Construire avec passion, un composant à la fois.',
-      rights:  '© 2024 Lakhdar Chaouch Imene. Tous droits réservés.',
+      rights:  '© 2026 Lakhdar Chaouch Imene. Tous droits réservés.',
     },
 
-    // Thème & Langue (dans le navbar)
     ui: {
       toggle_theme: 'Changer de thème',
       toggle_lang:  'Switch to English',
@@ -115,21 +93,21 @@ export const translations = {
     hero: {
       greeting:    'Hello, I am',
       name:        'Lakhdar Chaouch Imene',
-      title:       'Software Architect & Full Stack Developer',
-      description: `4th year Software Engineering student, passionate about building
-                    clean, scalable and elegant architectures.
-                    I craft solutions that blend technical depth with thoughtful design.`,
+      title:       'Software Engineering Student',
+      description: `4th year Engineering student at Université de Béjaïa. I design software
+                    architectures, break down complex problems into clear modules, and leverage
+                    modern tools — including AI — to take an idea all the way to a working application.`,
       cta_primary:   'View my projects',
       cta_secondary: 'Download CV',
       scroll_hint:   'Scroll to explore',
     },
 
     projects: {
-      title:       'Architecture Projects',
-      subtitle:    'Each project is an opportunity to learn and apply solid patterns.',
+      title:       'Projects',
+      subtitle:    'Personal projects built end-to-end — design, architecture and implementation.',
       view_code:   'Code',
       view_demo:   'Demo',
-      view_all:    'View all projects',
+      view_all:    'View all projects on GitHub',
       view_images: 'Screenshots',
       close:       'Close',
       image_of:    'Image',
@@ -137,28 +115,37 @@ export const translations = {
     },
 
     skills: {
-      title:    'Languages & Ecosystem',
-      subtitle: 'Technologies I work with daily.',
-      prog_langs:  'Programming Languages',
-      human_langs: 'Human Languages',
-      tools:       'Tools & Frameworks',
+      title:       'Skills',
+      subtitle:    'Technologies I work with daily.',
+      human_langs: 'Languages',
+      tools:       'Languages, Tools & Frameworks',
     },
 
     experience: {
-      title:    'Professional Journey',
+      title:    'Experience',
       subtitle: 'My growth in the world of software development.',
       present:  'Present',
     },
 
+    certifications: {
+      title:        'Certifications & Badges',
+      subtitle:     'Continuous learning beyond the classroom.',
+      tab_certs:    'Certifications',
+      tab_badges:   'Badges',
+      verified:     'Verifiable online',
+      in_progress:  'In progress',
+      view_badge:   'View badge',
+      coming_soon:  'Coming soon...',
+    },
+
     contact: {
-      title:         'Let\'s Work Together',
-      subtitle:      'Have a project in mind? I\'m open to collaborations.',
-     
+      title:    'Get In Touch',
+      subtitle: 'Open to opportunities, collaborations and conversations.',
     },
 
     footer: {
       tagline: 'Building with passion, one component at a time.',
-      rights:  '© 2024 Lakhdar Chaouch Imene. All rights reserved.',
+      rights:  '© 2026 Lakhdar Chaouch Imene. All rights reserved.',
     },
 
     ui: {

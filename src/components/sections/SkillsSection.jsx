@@ -3,80 +3,35 @@
    ============================================================ */
 
 import { useLang } from '../../context/AppContext'
-import { programmingLanguages, humanLanguages, tools } from '../../data/skills'
+import { humanLanguages, tools } from '../../data/skills'
 import SectionHeader from '../ui/SectionHeader'
 import DynamicIcon from '../ui/DynamicIcon'
 
-// Composant interne : barre de progression
-function SkillBar({ name, level, icon }) {
-  return (
-    <div style={{ marginBottom: '1rem' }}>
-      {/* Nom + pourcentage */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: '0.5rem',
-      }}>
-        <span style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          fontFamily: 'var(--font-grotesk)',
-          fontWeight: 500,
-          fontSize: '0.9375rem',
-          color: 'var(--text-primary)',
-        }}>
-          {icon && (
-            <span style={{ color: 'var(--accent)', display: 'flex' }}>
-              <DynamicIcon name={icon} size={15} strokeWidth={2} />
-            </span>
-          )}
-          {name}
-        </span>
-        <span style={{
-          fontSize: '0.8125rem',
-          color: 'var(--text-muted)',
-          fontFamily: 'var(--font-grotesk)',
-        }}>
-          {level}%
-        </span>
-      </div>
+/* Langages de programmation — maintenant juste des tags comme les outils */
+const programmingLanguageTags = [
+  { name: 'Java',       category: 'Language', icon: 'Coffee'    },
+  { name: 'JavaScript', category: 'Language', icon: 'Zap'       },
+  { name: 'TypeScript', category: 'Language', icon: 'FileCode2' },
+  { name: 'Python',     category: 'Language', icon: 'Terminal'  },
+  { name: 'SQL',        category: 'Language', icon: 'Database'  },
+  { name: 'PHP',        category: 'Language', icon: 'Code2'     },
+  { name: 'Kotlin',     category: 'Language', icon: 'Smartphone'},
+]
 
-      {/* Barre */}
-      {/* La piste (fond) */}
-      <div style={{
-        height: '4px',
-        background: 'var(--border-color)',
-        borderRadius: '100px',
-        overflow: 'hidden',
-      }}>
-        {/* Le remplissage (la largeur = level%) */}
-        <div style={{
-          height: '100%',
-          width: `${level}%`,
-          background: 'linear-gradient(90deg, var(--accent), var(--violet))',
-          borderRadius: '100px',
-          transition: 'width 1s ease',
-        }} />
-      </div>
-    </div>
-  )
+/* Couleurs par catégorie */
+const categoryColors = {
+  Language: '#2E5BFF',
+  Frontend: '#0EA5E9',
+  Backend:  '#6D6BD4',
+  Mobile:   '#8B5CF6',
+  DevOps:   '#10B981',
+  Database: '#F59E0B',
+  Design:   '#EC4899',
 }
 
-// Composant interne : tag de tool
-function ToolTag({ name, category, icon }) {
-  const categoryColors = {
-    Frontend: '#2E5BFF',
-    Backend:  '#6D6BD4',
-    Mobile:   '#0EA5E9',
-    DevOps:   '#10B981',
-    Database: '#F59E0B',
-    Design:   '#EC4899',
-  }
-
+/* Tag générique */
+function Tag({ name, category, icon }) {
   const color = categoryColors[category] || '#6B7280'
-
   return (
     <span style={{
       background: color + '15',
@@ -90,15 +45,57 @@ function ToolTag({ name, category, icon }) {
       display: 'inline-flex',
       alignItems: 'center',
       gap: '0.375rem',
-    }}>
+      transition: 'background 0.2s, transform 0.15s',
+      cursor: 'default',
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.background = color + '28'
+      e.currentTarget.style.transform = 'translateY(-1px)'
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.background = color + '15'
+      e.currentTarget.style.transform = 'translateY(0)'
+    }}
+    >
       {icon && <DynamicIcon name={icon} size={13} strokeWidth={2} color={color} />}
       {name}
     </span>
   )
 }
 
+/* Groupe de tags avec label de catégorie */
+function TagGroup({ label, items }) {
+  return (
+    <div style={{ marginBottom: '1.25rem' }}>
+      <p style={{
+        fontSize: '0.6875rem',
+        fontFamily: 'var(--font-grotesk)',
+        fontWeight: 600,
+        color: 'var(--text-muted)',
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em',
+        marginBottom: '0.625rem',
+      }}>
+        {label}
+      </p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+        {items.map(item => (
+          <Tag key={item.name} {...item} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function SkillsSection() {
   const { t, lang } = useLang()
+
+  /* Regrouper les outils par catégorie */
+  const groupedTools = tools.reduce((acc, tool) => {
+    if (!acc[tool.category]) acc[tool.category] = []
+    acc[tool.category].push(tool)
+    return acc
+  }, {})
 
   return (
     <section
@@ -122,22 +119,29 @@ export default function SkillsSection() {
           gap: '2rem',
         }}>
 
-          {/* Colonne 1 : Langages de programmation */}
+          {/* Colonne 1 : Langages + Outils groupés */}
           <div className="glass" style={{ borderRadius: '16px', padding: '1.5rem' }}>
             <h3 style={{
               fontFamily: 'var(--font-grotesk)',
               fontWeight: 600,
-              fontSize: '1rem',
               color: 'var(--text-secondary)',
               marginBottom: '1.5rem',
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
               fontSize: '0.75rem',
             }}>
-              {t('skills.prog_langs')}
+              {t('skills.tools')}
             </h3>
-            {programmingLanguages.map(skill => (
-              <SkillBar key={skill.name} {...skill} />
+
+            {/* Langages de programmation */}
+            <TagGroup
+              label="Langages"
+              items={programmingLanguageTags}
+            />
+
+            {/* Outils groupés par catégorie */}
+            {Object.entries(groupedTools).map(([category, items]) => (
+              <TagGroup key={category} label={category} items={items} />
             ))}
           </div>
 
@@ -154,6 +158,7 @@ export default function SkillsSection() {
             }}>
               {t('skills.human_langs')}
             </h3>
+
             {humanLanguages.map(hl => (
               <div key={hl.name.fr} style={{ marginBottom: '1.25rem' }}>
                 <div style={{
@@ -202,35 +207,6 @@ export default function SkillsSection() {
           </div>
 
         </div>
-
-        {/* Outils & Frameworks */}
-        <div style={{ marginTop: '2rem' }} className="glass" style={{
-          borderRadius: '16px',
-          padding: '1.5rem',
-          marginTop: '2rem',
-        }}>
-          <h3 style={{
-            fontFamily: 'var(--font-grotesk)',
-            fontWeight: 600,
-            color: 'var(--text-secondary)',
-            marginBottom: '1.25rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            fontSize: '0.75rem',
-          }}>
-            {t('skills.tools')}
-          </h3>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '0.625rem',
-          }}>
-            {tools.map(tool => (
-              <ToolTag key={tool.name} {...tool} />
-            ))}
-          </div>
-        </div>
-
       </div>
     </section>
   )

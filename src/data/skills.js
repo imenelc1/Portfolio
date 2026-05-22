@@ -1,10 +1,7 @@
 /* ============================================================
    DONNÉES — Compétences et Expériences
-   
    ============================================================ */
 
-/* --- Langages de Programmation --- */
-// C'est la séparation données/vue : le fichier data ne sait pas
 export const programmingLanguages = [
   { name: 'Java',       level: 90, icon: 'Coffee'    },
   { name: 'JavaScript', level: 85, icon: 'Zap'       },
@@ -13,77 +10,76 @@ export const programmingLanguages = [
   { name: 'SQL',        level: 85, icon: 'Database'  },
 ]
 
-/* --- Frameworks & Outils --- */
 export const tools = [
-  { name: 'React',        category: 'Frontend', icon: 'Atom'         },
-  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone'   },
-  { name: 'Node.js',      category: 'Backend',  icon: 'Server'       },
-  { name: 'Docker',       category: 'DevOps',   icon: 'Container'    },
-  { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'    },
-  { name: 'PostgreSQL',   category: 'Database', icon: 'Database'     },
-  { name: 'MongoDB',      category: 'Database', icon: 'CircleStack'  },
-  { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush'   },
+  { name: 'React',        category: 'Frontend', icon: 'Atom'        },
+  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone'  },
+  { name: 'Node.js',      category: 'Backend',  icon: 'Server'      },
+  { name: 'Docker',       category: 'DevOps',   icon: 'Container'   },
+  { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'   },
+  { name: 'PostgreSQL',   category: 'Database', icon: 'Database'    },
+  { name: 'MongoDB',      category: 'Database', icon: 'CircleStack' },
+  { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush'  },
 ]
 
 export const humanLanguages = [
   {
     name:    { fr: 'Arabe',    en: 'Arabic'   },
     level:   { fr: 'Langue maternelle', en: 'Native' },
-    icon:    'MessageCircle', 
+    icon:    'MessageCircle',
     percent: 100,
   },
   {
     name:    { fr: 'Kabyle',   en: 'Kabyle'   },
     level:   { fr: 'Langue maternelle', en: 'Native' },
-    icon:    'Languages', 
+    icon:    'Languages',
     percent: 100,
   },
   {
     name:    { fr: 'Français', en: 'French'   },
     level:   { fr: 'Intermédiaire Avancé (B2)', en: 'Upper-Intermediate (B2)' },
     icon:    'BookOpen',
-    percent: 80, 
+    percent: 80,
   },
   {
     name:    { fr: 'Anglais',  en: 'English'  },
     level:   { fr: 'Intermédiaire Supérieur (B2)', en: 'Upper-Intermediate (B2)' },
     icon:    'Globe',
-    percent: 70, 
+    percent: 70,
   },
   {
     name:    { fr: 'Turc',     en: 'Turkish'  },
     level:   { fr: 'Intermédiaire (B1)', en: 'Intermediate (B1)' },
     icon:    'Compass',
-    percent: 65, 
+    percent: 65,
   },
 ]
 
 /* ============================================================
-   DONNÉES — Expériences Professionnelles
+   EXPÉRIENCES
    ============================================================ */
 export const experiences = [
   {
     id: 'internship-cevital',
     title: {
-      fr: 'Stagiaire en Informatique Industrielle',
-      en: 'Industrial IT Intern',
+      fr: 'Stagiaire DSI — Systèmes d\'Information Industriels',
+      en: 'IT Department Intern — Industrial Information Systems',
     },
-    company: 'Cevital Agro-industrie — Béjaïa',
+    company: 'Cevital Agroalimentaire — Béjaïa',
     period: {
-      start: { fr: 'Mars 2026', en: 'March 2026' },
-      end:   { fr: 'Mars 2026', en: 'March 2026' },
+      start: { fr: '24 Mars 2026', en: 'March 24, 2026' },
+      end:   { fr: '31 Mars 2026', en: 'March 31, 2026' },
     },
     description: {
-      fr: 'Stage d\'observation portant sur l\'analyse des flux de données industriels et l\'automatisation des processus au sein du complexe agro-alimentaire.',
-      en: 'Observation internship focused on analyzing industrial data flows and process automation within the food processing complex.',
+      fr: 'Immersion au sein de la DSI de l\'un des plus grands groupes industriels privés d\'Algérie. Observation de l\'infrastructure réseau hiérarchique (VMware ESXi, SAN, pfSense), de la cybersécurité (SOC/SIEM Wazuh, CIA Triad, PCA/PRA), des ERP (SAP S/4HANA, Sage X3, méthodologie Activate), de la Business Intelligence (Power BI, ETL, Data Warehouse) et des outils d\'automatisation modernes (n8n, Docker).',
+      en: 'Immersion within the IT department of one of Algeria\'s largest private industrial groups. Observed hierarchical network infrastructure (VMware ESXi, SAN, pfSense), cybersecurity practices (SOC/SIEM Wazuh, CIA Triad, BCP/DRP), ERP systems (SAP S/4HANA, Sage X3, SAP Activate methodology), Business Intelligence pipelines (Power BI, ETL, Data Warehouse), and modern automation tooling (n8n, Docker).',
     },
-    tags: ['Informatique Industrielle', 'Analyse de données', 'Automatisation'],
+    tags: ['SAP S/4HANA', 'VMware ESXi', 'Power BI', 'Cybersécurité', 'ITIL', 'Docker', 'n8n'],
     type: 'work',
   },
   {
     id: 'engineering-student',
     title: {
-      fr: 'Élève Ingénieur en Génie Logiciel',
+      fr: 'Étudiante Ingénieure en Génie Logiciel',
       en: 'Software Engineering Student',
     },
     company: 'Université de Béjaïa',
@@ -92,17 +88,17 @@ export const experiences = [
       end:   { fr: 'Juin 2027', en: 'June 2027' },
     },
     description: {
-      fr: 'Cycle d\'ingénieur de 5 ans spécialisé en Génie Logiciel. Focus sur l\'architecture système, le développement mobile (React Native) et les technologies Cloud.',
-      en: '5-year engineering cycle specialized in Software Engineering. Focus on system architecture, mobile development (React Native), and Cloud technologies.',
+      fr: "Cursus d'ingénieur d'État approfondi couvrant l'intégralité du cycle de vie du logiciel. Expertise développée en ingénierie logicielle, systèmes d'exploitation mobiles, sécurité, Big Data, ainsi qu'en automatisation DevOps et Cloud Computing.",
+      en: "Comprehensive State Engineering degree covering the entire software development lifecycle. Advanced training in software engineering, mobile operating systems, cybersecurity, Big Data, as well as DevOps automation and Cloud Computing.",
     },
-    tags: ['Génie Logiciel', 'Java', 'React Native', 'Cloud'],
+    tags: ['Génie Logiciel'],
     type: 'education',
   },
   {
     id: 'bac-degree',
     title: {
-      fr: 'Baccalauréat',
-      en: 'High School Diploma',
+      fr: 'Baccalauréat — Sciences Expérimentales',
+      en: 'High School Diploma — Experimental Sciences',
     },
     company: 'Lycée Chouhada Annani — Béjaïa',
     period: {
@@ -110,10 +106,10 @@ export const experiences = [
       end:   { fr: 'Juin 2022', en: 'June 2022' },
     },
     description: {
-      fr: 'Diplôme du Baccalauréat avec mention.',
-      en: 'High School Diploma with honors.',
+      fr: 'Baccalauréat Sciences Expérimentales — Mention Bien (15/20).',
+      en: 'Baccalaureate in Experimental Sciences — With Merit (15/20).',
     },
-    tags: ['Sciences', 'Mathématiques'],
+    tags: ['Sciences Expérimentales'],
     type: 'education',
   },
 ]

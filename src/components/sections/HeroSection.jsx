@@ -1,5 +1,5 @@
 /* ============================================================
-   SECTION — Hero 
+   SECTION — Hero
    ============================================================ */
 
 import { useLang } from '../../context/AppContext'
@@ -22,73 +22,82 @@ export default function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* Arrière-plan décoratif : cercles lumineux */}
+      {/* Arrière-plan décoratif */}
       <div style={{
         position: 'absolute',
-        top: '20%',
-        left: '50%',
+        top: '20%', left: '50%',
         transform: 'translateX(-50%)',
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, rgba(46,91,255,0.08) 0%, transparent 70%)',
+        width: '600px', height: '600px',
+        background: 'radial-gradient(circle, rgba(46,91,255,0.07) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute',
-        top: '30%',
-        right: '10%',
-        width: '300px',
-        height: '300px',
-        background: 'radial-gradient(circle, rgba(109,107,212,0.06) 0%, transparent 70%)',
+        top: '30%', right: '10%',
+        width: '300px', height: '300px',
+        background: 'radial-gradient(circle, rgba(109,107,212,0.05) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
-      {/* Contenu principal */}
-      <div style={{ position: 'relative', maxWidth: '800px' }}>
+      <div style={{ position: 'relative', maxWidth: '750px' }}>
 
-        {/* Nom principal */}
+        {/* Badge rôle — attire l'œil en premier */}
+        <div
+          className="animate-fade-in-up delay-100"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: 'rgba(46,91,255,0.08)',
+            border: '1px solid rgba(46,91,255,0.2)',
+            borderRadius: '100px',
+            padding: '0.375rem 1rem',
+            marginBottom: '1.5rem',
+            fontFamily: 'var(--font-grotesk)',
+            fontSize: '0.8125rem',
+            fontWeight: 500,
+            color: 'var(--accent)',
+            letterSpacing: '0.02em',
+          }}
+        >
+          <span style={{
+            width: '6px', height: '6px',
+            borderRadius: '50%',
+            background: 'var(--accent)',
+            animation: 'pulse 2s ease infinite',
+            flexShrink: 0,
+          }} />
+          {t('hero.title')}
+        </div>
+
+        {/* Nom — réduit, plus équilibré */}
         <h1
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: 'var(--font-grotesk)',
             fontWeight: 700,
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            lineHeight: 1.1,
+            fontSize: 'clamp(2rem, 5vw, 3.25rem)',
+            lineHeight: 1.15,
             letterSpacing: '-0.03em',
-            marginBottom: '1rem',
+            marginBottom: '1.25rem',
             color: 'var(--text-primary)',
           }}
         >
-          {/* On split le nom pour mettre en couleur le dernier mot */}
           Lakhdar Chaouch{' '}
           <span className="text-gradient">Imene</span>
         </h1>
 
-        {/* Sous-titre */}
+        {/* Description — plus visible, légèrement contrastée */}
         <p
           className="animate-fade-in-up delay-300"
           style={{
-            fontFamily: 'var(--font-grotesk)',
-            fontWeight: 400,
-            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+            fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
             color: 'var(--text-secondary)',
-            marginBottom: '1.5rem',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          {t('hero.title')}
-        </p>
-
-        {/* Description */}
-        <p
-          className="animate-fade-in-up delay-300"
-          style={{
-            fontSize: '1rem',
-            color: 'var(--text-muted)',
-            lineHeight: 1.7,
-            maxWidth: '600px',
+            lineHeight: 1.75,
+            maxWidth: '580px',
             margin: '0 auto 2.5rem',
             fontFamily: 'var(--font-inter)',
+            fontWeight: 400,
           }}
         >
           {t('hero.description')}
@@ -104,7 +113,6 @@ export default function HeroSection() {
             flexWrap: 'wrap',
           }}
         >
-          {/* Bouton principal */}
           <a
             href="#projects"
             style={{
@@ -133,7 +141,6 @@ export default function HeroSection() {
             {t('hero.cta_primary')} →
           </a>
 
-          {/* Bouton secondaire */}
           <a
             href="/cv.pdf"
             download
@@ -162,7 +169,7 @@ export default function HeroSection() {
           </a>
         </div>
 
-        {/* Indicateur de scroll */}
+        {/* Scroll hint */}
         <div style={{
           marginTop: '4rem',
           display: 'flex',
@@ -171,28 +178,30 @@ export default function HeroSection() {
           gap: '0.5rem',
         }}>
           <p style={{
-            fontSize: '0.75rem',
+            fontSize: '0.7rem',
             color: 'var(--text-muted)',
             fontFamily: 'var(--font-grotesk)',
-            letterSpacing: '0.1em',
+            letterSpacing: '0.12em',
             textTransform: 'uppercase',
           }}>
             {t('hero.scroll_hint')}
           </p>
           <div style={{
-            width: '1px',
-            height: '48px',
+            width: '1px', height: '48px',
             background: 'linear-gradient(to bottom, var(--accent), transparent)',
-            animation: 'fadeInUp 1s ease infinite alternate',
+            animation: 'scrollBounce 1.5s ease-in-out infinite',
           }} />
         </div>
       </div>
 
-      {/* Animation pulse pour le badge */}
       <style>{`
         @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.85); }
+        }
+        @keyframes scrollBounce {
+          0%, 100% { opacity: 1; transform: translateY(0); }
+          50% { opacity: 0.3; transform: translateY(6px); }
         }
       `}</style>
     </section>
