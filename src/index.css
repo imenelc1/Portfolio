@@ -4,13 +4,9 @@
 @theme {
   --color-onyx:           #0A0A0B;
   --color-surface:        #111113;
-  --color-surface-2:      #1A1A1E;
   --color-electric:       #2E5BFF;
   --color-electric-hover: #4a72ff;
   --color-violet:         #6D6BD4;
-  --color-white:          #FFFFFF;
-  --color-muted:          #6B7280;
-  --color-border:         rgba(255,255,255,0.08);
   --font-grotesk:         'Space Grotesk', sans-serif;
   --font-inter:           'Inter', sans-serif;
 }
@@ -27,8 +23,8 @@
   --text-muted:    #8B95A1;
   --border-color:  rgba(255,255,255,0.08);
   --border-hover:  rgba(255,255,255,0.18);
-  --glass-bg:      rgba(255,255,255,0.03);
-  --glass-border:  rgba(255,255,255,0.08);
+  --glass-bg:      rgba(255,255,255,0.04);
+  --glass-border:  rgba(255,255,255,0.09);
   --accent:        #2E5BFF;
   --accent-hover:  #4a72ff;
   --accent-soft:   rgba(46,91,255,0.15);
@@ -37,35 +33,31 @@
 }
 
 /* ============================================================
-   LIGHT MODE — couleurs renforcées pour lisibilité
+   LIGHT MODE — contrastes renforcés
    ============================================================ */
 :root[data-theme="light"] {
   --bg-primary:    #F4F6FB;
   --bg-surface:    #FFFFFF;
   --bg-surface-2:  #EDF0F7;
   --text-primary:  #0D0F14;
-  --text-secondary:#374151;
-  --text-muted:    #5A6474;
-  --border-color:  rgba(0,0,0,0.09);
-  --border-hover:  rgba(0,0,0,0.18);
-  --glass-bg:      rgba(0,0,0,0.025);
-  --glass-border:  rgba(0,0,0,0.09);
+  --text-secondary:#2D3748;
+  --text-muted:    #4A5568;
+  --border-color:  rgba(0,0,0,0.10);
+  --border-hover:  rgba(0,0,0,0.20);
+  /* Fix : fond de carte visible en light */
+  --glass-bg:      rgba(255,255,255,0.85);
+  --glass-border:  rgba(0,0,0,0.10);
   --accent:        #1E4BEF;
   --accent-hover:  #1238CC;
   --accent-soft:   rgba(30,75,239,0.09);
   --violet:        #4A48B5;
-  --grid-color:    rgba(0,0,0,0.04);
+  --grid-color:    rgba(0,0,0,0.035);
 }
 
 /* ============================================================
    RESET & GLOBAL
    ============================================================ */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -77,7 +69,7 @@ body {
 }
 
 /* ============================================================
-   BACKGROUND — grille subtile sur toute la page
+   BACKGROUND — grille subtile
    ============================================================ */
 body::before {
   content: '';
@@ -93,10 +85,17 @@ body::before {
 
 main, nav, footer { position: relative; z-index: 1; }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
+/* ============================================================
+   SCROLLBAR — global (plus de style inline dans les composants)
+   ============================================================ */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+* { scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
+
+/* Masquer scrollbar sur les carousels horizontaux */
+.carousel-scroll { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.carousel-scroll::-webkit-scrollbar { display: none; }
 
 /* ============================================================
    GLASSMORPHISM
@@ -106,6 +105,11 @@ main, nav, footer { position: relative; z-index: 1; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
+}
+
+/* Light mode : ombre légère sur les cartes pour les distinguer */
+:root[data-theme="light"] .glass {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
 }
 
 /* ============================================================
@@ -135,28 +139,23 @@ main, nav, footer { position: relative; z-index: 1; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
 
 /* ============================================================
-   SCROLL REVEAL — éléments qui apparaissent au défilement
-   Activés via JS (IntersectionObserver dans main.jsx)
+   SCROLL REVEAL
    ============================================================ */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease var(--reveal-delay, 0s),
+    transform 0.55s ease var(--reveal-delay, 0s);
 }
 
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Délais de stagger pour les listes d'éléments */
-.scroll-reveal:nth-child(1) { transition-delay: 0.05s; }
-.scroll-reveal:nth-child(2) { transition-delay: 0.12s; }
-.scroll-reveal:nth-child(3) { transition-delay: 0.19s; }
-.scroll-reveal:nth-child(4) { transition-delay: 0.26s; }
-.scroll-reveal:nth-child(5) { transition-delay: 0.33s; }
 
 /* ============================================================
    RESPONSIVE HELPERS

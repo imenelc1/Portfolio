@@ -11,30 +11,28 @@ createRoot(document.getElementById('root')).render(
 
 /* ============================================================
    SCROLL REVEAL — IntersectionObserver global
-   Observe tous les éléments .scroll-reveal et ajoute
-   la classe .is-visible quand ils entrent dans le viewport
    ============================================================ */
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible')
-        // On désobserve après l'apparition pour les performances
-        observer.unobserve(entry.target)
+        revealObserver.unobserve(entry.target)
       }
     })
   },
-  { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
 )
 
-// Observer les éléments existants + les nouveaux ajoutés au DOM
-const observeAll = () => {
-  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el))
+const observeNew = () => {
+  document.querySelectorAll('.scroll-reveal:not(.is-visible)').forEach(el => {
+    revealObserver.observe(el)
+  })
 }
 
-// Lancer après le rendu React
-setTimeout(observeAll, 300)
+/* Premier passage après rendu React */
+setTimeout(observeNew, 250)
 
-// MutationObserver pour les éléments ajoutés dynamiquement
-const mutObs = new MutationObserver(observeAll)
-mutObs.observe(document.body, { childList: true, subtree: true })
+/* Observer les nouveaux éléments ajoutés dynamiquement */
+const mutationObs = new MutationObserver(() => observeNew())
+mutationObs.observe(document.body, { childList: true, subtree: true })

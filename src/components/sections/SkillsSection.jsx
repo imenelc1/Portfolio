@@ -1,13 +1,8 @@
-/* ============================================================
-   SECTION — Compétences
-   ============================================================ */
-
 import { useLang } from '../../context/AppContext'
 import { humanLanguages, tools } from '../../data/skills'
 import SectionHeader from '../ui/SectionHeader'
 import DynamicIcon from '../ui/DynamicIcon'
 
-/* Langages de programmation — maintenant juste des tags comme les outils */
 const programmingLanguageTags = [
   { name: 'Java',       category: 'Language', icon: 'Coffee'    },
   { name: 'JavaScript', category: 'Language', icon: 'Zap'       },
@@ -18,7 +13,6 @@ const programmingLanguageTags = [
   { name: 'Kotlin',     category: 'Language', icon: 'Smartphone'},
 ]
 
-/* Couleurs par catégorie */
 const categoryColors = {
   Language: '#2E5BFF',
   Frontend: '#0EA5E9',
@@ -29,33 +23,33 @@ const categoryColors = {
   Design:   '#EC4899',
 }
 
-/* Tag générique */
 function Tag({ name, category, icon }) {
   const color = categoryColors[category] || '#6B7280'
   return (
-    <span style={{
-      background: color + '15',
-      color: color,
-      border: `1px solid ${color}30`,
-      padding: '0.375rem 0.75rem',
-      borderRadius: '8px',
-      fontSize: '0.8125rem',
-      fontFamily: 'var(--font-grotesk)',
-      fontWeight: 500,
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: '0.375rem',
-      transition: 'background 0.2s, transform 0.15s',
-      cursor: 'default',
-    }}
-    onMouseEnter={e => {
-      e.currentTarget.style.background = color + '28'
-      e.currentTarget.style.transform = 'translateY(-1px)'
-    }}
-    onMouseLeave={e => {
-      e.currentTarget.style.background = color + '15'
-      e.currentTarget.style.transform = 'translateY(0)'
-    }}
+    <span
+      style={{
+        background: color + '15',
+        color: color,
+        border: `1px solid ${color}30`,
+        padding: '0.375rem 0.75rem',
+        borderRadius: '8px',
+        fontSize: '0.8125rem',
+        fontFamily: 'var(--font-grotesk)',
+        fontWeight: 500,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.375rem',
+        transition: 'background 0.2s, transform 0.15s',
+        cursor: 'default',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.background = color + '28'
+        e.currentTarget.style.transform = 'translateY(-1px)'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.background = color + '15'
+        e.currentTarget.style.transform = 'translateY(0)'
+      }}
     >
       {icon && <DynamicIcon name={icon} size={13} strokeWidth={2} color={color} />}
       {name}
@@ -63,7 +57,6 @@ function Tag({ name, category, icon }) {
   )
 }
 
-/* Groupe de tags avec label de catégorie */
 function TagGroup({ label, items }) {
   return (
     <div style={{ marginBottom: '1.25rem' }}>
@@ -79,9 +72,7 @@ function TagGroup({ label, items }) {
         {label}
       </p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-        {items.map(item => (
-          <Tag key={item.name} {...item} />
-        ))}
+        {items.map(item => <Tag key={item.name} {...item} />)}
       </div>
     </div>
   )
@@ -90,12 +81,33 @@ function TagGroup({ label, items }) {
 export default function SkillsSection() {
   const { t, lang } = useLang()
 
-  /* Regrouper les outils par catégorie */
+  /* Label "Langages" bilingue */
+  const langLabel = lang === 'fr' ? 'Langages' : 'Languages'
+
   const groupedTools = tools.reduce((acc, tool) => {
     if (!acc[tool.category]) acc[tool.category] = []
     acc[tool.category].push(tool)
     return acc
   }, {})
+
+  /* Noms de catégories traduits */
+  const categoryLabels = {
+    Frontend: 'Frontend',
+    Backend:  'Backend',
+    Mobile:   'Mobile',
+    DevOps:   'DevOps',
+    Database: lang === 'fr' ? 'Base de données' : 'Database',
+    Design:   'Design',
+  }
+
+  const cardStyle = {
+    borderRadius: '16px',
+    padding: '1.5rem',
+    /* Fix light mode : fond plus visible */
+    background: 'var(--bg-surface)',
+    border: '1px solid var(--border-color)',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+  }
 
   return (
     <section
@@ -108,53 +120,40 @@ export default function SkillsSection() {
       }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        <SectionHeader
-          title={t('skills.title')}
-          subtitle={t('skills.subtitle')}
-        />
+        <SectionHeader title={t('skills.title')} subtitle={t('skills.subtitle')} />
 
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '2rem',
         }}>
-
-          {/* Colonne 1 : Langages + Outils groupés */}
-          <div className="glass" style={{ borderRadius: '16px', padding: '1.5rem' }}>
+          {/* Colonne 1 : Langages + Outils */}
+          <div className="scroll-reveal" style={cardStyle}>
             <h3 style={{
-              fontFamily: 'var(--font-grotesk)',
-              fontWeight: 600,
-              color: 'var(--text-secondary)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              fontSize: '0.75rem',
+              fontFamily: 'var(--font-grotesk)', fontWeight: 600,
+              color: 'var(--text-secondary)', marginBottom: '1.5rem',
+              textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '0.75rem',
             }}>
               {t('skills.tools')}
             </h3>
 
-            {/* Langages de programmation */}
-            <TagGroup
-              label="Langages"
-              items={programmingLanguageTags}
-            />
+            <TagGroup label={langLabel} items={programmingLanguageTags} />
 
-            {/* Outils groupés par catégorie */}
             {Object.entries(groupedTools).map(([category, items]) => (
-              <TagGroup key={category} label={category} items={items} />
+              <TagGroup
+                key={category}
+                label={categoryLabels[category] || category}
+                items={items}
+              />
             ))}
           </div>
 
           {/* Colonne 2 : Langues humaines */}
-          <div className="glass" style={{ borderRadius: '16px', padding: '1.5rem' }}>
+          <div className="scroll-reveal" style={{ ...cardStyle, '--reveal-delay': '0.1s' }}>
             <h3 style={{
-              fontFamily: 'var(--font-grotesk)',
-              fontWeight: 600,
-              color: 'var(--text-secondary)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              fontSize: '0.75rem',
+              fontFamily: 'var(--font-grotesk)', fontWeight: 600,
+              color: 'var(--text-secondary)', marginBottom: '1.5rem',
+              textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '0.75rem',
             }}>
               {t('skills.human_langs')}
             </h3>
@@ -162,18 +161,13 @@ export default function SkillsSection() {
             {humanLanguages.map(hl => (
               <div key={hl.name.fr} style={{ marginBottom: '1.25rem' }}>
                 <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '0.5rem',
+                  display: 'flex', justifyContent: 'space-between',
+                  alignItems: 'center', marginBottom: '0.5rem',
                 }}>
                   <span style={{
-                    fontFamily: 'var(--font-grotesk)',
-                    fontWeight: 500,
+                    fontFamily: 'var(--font-grotesk)', fontWeight: 500,
                     color: 'var(--text-primary)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
+                    display: 'flex', alignItems: 'center', gap: '0.5rem',
                   }}>
                     <span style={{ color: 'var(--violet)', display: 'flex' }}>
                       <DynamicIcon name={hl.icon} size={15} />
@@ -181,23 +175,18 @@ export default function SkillsSection() {
                     {hl.name[lang]}
                   </span>
                   <span style={{
-                    fontSize: '0.8125rem',
-                    color: 'var(--accent)',
-                    fontFamily: 'var(--font-grotesk)',
-                    fontWeight: 500,
+                    fontSize: '0.8125rem', color: 'var(--accent)',
+                    fontFamily: 'var(--font-grotesk)', fontWeight: 500,
                   }}>
                     {hl.level[lang]}
                   </span>
                 </div>
                 <div style={{
-                  height: '4px',
-                  background: 'var(--border-color)',
-                  borderRadius: '100px',
-                  overflow: 'hidden',
+                  height: '4px', background: 'var(--border-color)',
+                  borderRadius: '100px', overflow: 'hidden',
                 }}>
                   <div style={{
-                    height: '100%',
-                    width: `${hl.percent}%`,
+                    height: '100%', width: `${hl.percent}%`,
                     background: 'linear-gradient(90deg, var(--violet), var(--accent))',
                     borderRadius: '100px',
                   }} />
@@ -205,7 +194,6 @@ export default function SkillsSection() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

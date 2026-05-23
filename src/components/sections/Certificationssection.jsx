@@ -1,7 +1,3 @@
-/* ============================================================
-   SECTION — Certifications & Badges
-   ============================================================ */
-
 import { useState, useRef } from 'react'
 import { useLang } from '../../context/AppContext'
 import { certifications } from '../../data/Certifications'
@@ -9,7 +5,6 @@ import SectionHeader from '../ui/SectionHeader'
 import DynamicIcon from '../ui/DynamicIcon'
 import { BadgeCheck, Clock, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 
-/* ---- Carte individuelle ---- */
 function CertCard({ cert, t, lang }) {
   return (
     <div
@@ -35,35 +30,22 @@ function CertCard({ cert, t, lang }) {
         e.currentTarget.style.opacity = cert.inProgress ? '0.72' : '1'
       }}
     >
-      {/* Bande colorée */}
-      <div style={{
-        height: '2px',
-        background: `linear-gradient(90deg, ${cert.color}, ${cert.color}00)`,
-      }} />
+      <div style={{ height: '2px', background: `linear-gradient(90deg, ${cert.color}, ${cert.color}00)` }} />
 
       <div style={{ padding: '1.125rem', display: 'flex', flexDirection: 'column', gap: '0.875rem', flex: 1 }}>
-        {/* Badge image + titre */}
         <div style={{ display: 'flex', gap: '0.875rem', alignItems: 'center' }}>
-          
-
           <div style={{ minWidth: 0 }}>
             <p style={{
-              fontFamily: 'var(--font-grotesk)',
-              fontWeight: 600,
-              fontSize: '0.9375rem',
-              color: 'var(--text-primary)',
-              lineHeight: 1.3,
-              marginBottom: '0.2rem',
+              fontFamily: 'var(--font-grotesk)', fontWeight: 600,
+              fontSize: '0.9375rem', color: 'var(--text-primary)',
+              lineHeight: 1.3, marginBottom: '0.2rem',
             }}>
               {cert.title}
             </p>
             <p style={{
-              fontSize: '0.8125rem',
-              color: 'var(--text-secondary)',
+              fontSize: '0.8125rem', color: 'var(--text-secondary)',
               fontFamily: 'var(--font-grotesk)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.3rem',
+              display: 'flex', alignItems: 'center', gap: '0.3rem',
             }}>
               <DynamicIcon name={cert.issuerIcon} size={12} strokeWidth={2} />
               {cert.issuer}
@@ -71,22 +53,12 @@ function CertCard({ cert, t, lang }) {
           </div>
         </div>
 
-        {/* Footer : date + statut */}
         <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingTop: '0.75rem',
-          borderTop: '1px solid var(--border-color)',
-          marginTop: 'auto',
-          gap: '0.5rem',
-          flexWrap: 'wrap',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)',
+          marginTop: 'auto', gap: '0.5rem', flexWrap: 'wrap',
         }}>
-          <span style={{
-            fontSize: '0.75rem',
-            color: 'var(--text-muted)',
-            fontFamily: 'var(--font-grotesk)',
-          }}>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-grotesk)' }}>
             {cert.date[lang]}
           </span>
 
@@ -114,7 +86,6 @@ function CertCard({ cert, t, lang }) {
                 {t('certifications.verified')}
               </span>
             )}
-
             {cert.badgeUrl && !cert.inProgress && (
               <a href={cert.badgeUrl} target="_blank" rel="noopener noreferrer"
                 style={{ color: cert.color, display: 'flex', transition: 'opacity 0.2s' }}
@@ -131,72 +102,42 @@ function CertCard({ cert, t, lang }) {
   )
 }
 
-/* ---- Carousel horizontal avec boutons prev/next ---- */
 function HorizontalCarousel({ items, t, lang }) {
-  // useRef : accès direct au DOM sans déclencher un re-render
-  // Parfait pour les opérations de scroll
   const scrollRef = useRef(null)
-
-  const scroll = (direction) => {
-    scrollRef.current?.scrollBy({ left: direction * 290, behavior: 'smooth' })
-  }
+  const scroll = (dir) => scrollRef.current?.scrollBy({ left: dir * 290, behavior: 'smooth' })
 
   const btnStyle = {
-    position: 'absolute', top: '50%',
-    transform: 'translateY(-50%)', zIndex: 2,
-    background: 'var(--bg-surface)',
-    border: '1px solid var(--border-color)',
+    position: 'absolute', top: '50%', transform: 'translateY(-50%)', zIndex: 2,
+    background: 'var(--bg-surface)', border: '1px solid var(--border-color)',
     borderRadius: '50%', width: '34px', height: '34px',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    cursor: 'pointer', color: 'var(--text-secondary)',
-    transition: 'all 0.2s',
+    cursor: 'pointer', color: 'var(--text-secondary)', transition: 'all 0.2s',
     boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
   }
 
   return (
     <div style={{ position: 'relative' }}>
-      <button
-        onClick={() => scroll(-1)}
-        style={{ ...btnStyle, left: '-1.125rem' }}
+      <button onClick={() => scroll(-1)} style={{ ...btnStyle, left: '-1.125rem' }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)' }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.color = 'var(--text-secondary)' }}
       >
         <ChevronLeft size={15} strokeWidth={2} />
       </button>
 
-      {/* Zone scrollable — scrollbar cachée via CSS */}
-      <div
-        ref={scrollRef}
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          overflowX: 'auto',
-          paddingBottom: '0.5rem',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-        }}
+      {/* Utilise la classe CSS carousel-scroll définie dans index.css */}
+      <div ref={scrollRef} className="carousel-scroll"
+        style={{ display: 'flex', gap: '1rem', paddingBottom: '0.5rem' }}
       >
-        <style>{`div::-webkit-scrollbar { display: none; }`}</style>
-        {items.map(cert => (
-          <CertCard key={cert.id} cert={cert} t={t} lang={lang} />
-        ))}
+        {items.map(cert => <CertCard key={cert.id} cert={cert} t={t} lang={lang} />)}
 
-        {/* Carte fantôme "Bientôt" si peu d'éléments */}
         {items.length < 3 && (
           <div style={{
-            flexShrink: 0,
-            width: '260px',
-            borderRadius: '14px',
+            flexShrink: 0, width: '260px', borderRadius: '14px',
             border: '1px dashed var(--border-color)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.5rem',
-            padding: '2rem',
-            color: 'var(--text-muted)',
-            fontFamily: 'var(--font-grotesk)',
-            fontSize: '0.875rem',
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center',
+            gap: '0.5rem', padding: '2rem',
+            color: 'var(--text-muted)', fontFamily: 'var(--font-grotesk)', fontSize: '0.875rem',
           }}>
             <Clock size={24} strokeWidth={1} />
             {t('certifications.coming_soon')}
@@ -204,9 +145,7 @@ function HorizontalCarousel({ items, t, lang }) {
         )}
       </div>
 
-      <button
-        onClick={() => scroll(1)}
-        style={{ ...btnStyle, right: '-1.125rem' }}
+      <button onClick={() => scroll(1)} style={{ ...btnStyle, right: '-1.125rem' }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)' }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.color = 'var(--text-secondary)' }}
       >
@@ -216,80 +155,53 @@ function HorizontalCarousel({ items, t, lang }) {
   )
 }
 
-/* ---- Section principale ---- */
 export default function CertificationsSection() {
   const { t, lang } = useLang()
   const [activeTab, setActiveTab] = useState('certifications')
 
-  // Filtrer par type — défini dans certifications.js
   const certList  = certifications.filter(c => c.type === 'certification')
   const badgeList = certifications.filter(c => c.type === 'badge')
-
-  // Si pas encore de distinction de type → tout afficher dans les deux onglets
   const displayCerts  = certList.length  > 0 ? certList  : certifications
   const displayBadges = badgeList.length > 0 ? badgeList : certifications
 
   const tabs = [
-    { id: 'certifications', label: t('certifications.tab_certs')  },
+    { id: 'certifications', label: t('certifications.tab_certs') },
     { id: 'badges',         label: t('certifications.tab_badges') },
   ]
 
   return (
-    <section
-      id="certifications"
-      style={{
-        padding: '6rem 1.5rem',
-        background: 'var(--bg-surface)',
-        borderTop: '1px solid var(--border-color)',
-        borderBottom: '1px solid var(--border-color)',
-      }}
-    >
+    <section id="certifications" style={{
+      padding: '6rem 1.5rem',
+      background: 'var(--bg-surface)',
+      borderTop: '1px solid var(--border-color)',
+      borderBottom: '1px solid var(--border-color)',
+    }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        <SectionHeader
-          title={t('certifications.title')}
-          subtitle={t('certifications.subtitle')}
-        />
+        <SectionHeader title={t('certifications.title')} subtitle={t('certifications.subtitle')} />
 
-        {/* Onglets style pill */}
         <div style={{
           display: 'inline-flex',
           background: 'var(--bg-surface-2)',
           border: '1px solid var(--border-color)',
-          borderRadius: '10px',
-          padding: '3px',
-          marginBottom: '2.5rem',
-          gap: '2px',
+          borderRadius: '10px', padding: '3px',
+          marginBottom: '2.5rem', gap: '2px',
         }}>
           {tabs.map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              style={{
-                padding: '0.5rem 1.5rem',
-                borderRadius: '8px',
-                border: 'none',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-grotesk)',
-                fontWeight: 500,
-                fontSize: '0.875rem',
-                transition: 'all 0.2s ease',
-                background: activeTab === tab.id ? 'var(--accent)' : 'transparent',
-                color: activeTab === tab.id ? '#fff' : 'var(--text-muted)',
-              }}
-            >
+            <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
+              padding: '0.5rem 1.5rem', borderRadius: '8px', border: 'none',
+              cursor: 'pointer', fontFamily: 'var(--font-grotesk)', fontWeight: 500,
+              fontSize: '0.875rem', transition: 'all 0.2s ease',
+              background: activeTab === tab.id ? 'var(--accent)' : 'transparent',
+              color: activeTab === tab.id ? '#fff' : 'var(--text-muted)',
+            }}>
               {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Carousel selon l'onglet actif */}
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
-          {activeTab === 'certifications' && (
-            <HorizontalCarousel items={displayCerts} t={t} lang={lang} />
-          )}
-          {activeTab === 'badges' && (
-            <HorizontalCarousel items={displayBadges} t={t} lang={lang} />
-          )}
+          {activeTab === 'certifications' && <HorizontalCarousel items={displayCerts} t={t} lang={lang} />}
+          {activeTab === 'badges'         && <HorizontalCarousel items={displayBadges} t={t} lang={lang} />}
         </div>
       </div>
     </section>

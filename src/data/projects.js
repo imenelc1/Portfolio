@@ -42,6 +42,29 @@ export const projects = [
   demo: null,
   featured: true,
 },
+{
+  id: 'roadskill',
+  title: 'RoadSkill — Gestion Auto-École',
+  images: [
+    '/projects/roadskill/dashboard.png',
+    '/projects/roadskill/apprenant.png',
+    '/projects/roadskill/planning.png',
+    '/projects/roadskill/moniteur.png',
+    '/projects/roadskill/dossier.png',
+    '/projects/roadskill/paiement.png',
+    '/projects/roadskill/vehicule.png',
+
+  ],
+  description: {
+    fr: 'Application desktop complète de gestion d\'auto-école, développée avec Electron, React 18 et Node.js. Gestion des apprenants, moniteurs, véhicules, planning des séances avec détection de conflits, examens, dossiers administratifs et paiements. Authentification JWT, génération de PDF, envoi d\'emails automatiques et suite de tests complète (Vitest + Node test runner).',
+    en: 'Full-featured desktop application for driving school management, built with Electron, React 18 and Node.js. Manages students, instructors, vehicles, session scheduling with conflict detection, exams, administrative files and payments. JWT authentication, PDF generation, automated email notifications and comprehensive test suite (Vitest + Node test runner).',
+  },
+  tags: ['Electron', 'React 18', 'TypeScript', 'Node.js', 'Express', 'SQLite', 'Sequelize', 'Vitest'],
+  color: '#0E4482',
+  github: 'https://github.com/imenelc1/roadskill',
+  demo: null,
+  featured: true,
+},
  
 ]
 
