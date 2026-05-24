@@ -7,11 +7,14 @@ import SkillsSection        from './components/sections/SkillsSection'
 import ExperienceSection    from './components/sections/ExperienceSection'
 import ContactSection       from './components/sections/ContactSection'
 import CertificationsSection from './components/sections/Certificationssection'
+import GridNeonBackground   from './components/layout/GridNeonBackground' 
 import './index.css'
 
 function AppContent() {
   return (
     <>
+      <GridNeonBackground /> 
+      
       <Navbar />
       <main>
         <HeroSection />

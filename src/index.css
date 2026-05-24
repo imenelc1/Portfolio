@@ -83,7 +83,8 @@ body::before {
   pointer-events: none;
 }
 
-main, nav, footer { position: relative; z-index: 1; }
+/* On s'assure que tout le contenu reste au-dessus du Canvas */
+main, nav, footer { position: relative; z-index: 2; }
 
 /* ============================================================
    SCROLLBAR — global (plus de style inline dans les composants)
