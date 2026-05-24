@@ -2,23 +2,22 @@
    DONNÉES — Compétences et Expériences
    ============================================================ */
 
-export const programmingLanguages = [
-  { name: 'Java',       level: 90, icon: 'Coffee'    },
-  { name: 'JavaScript', level: 85, icon: 'Zap'       },
-  { name: 'TypeScript', level: 80, icon: 'FileCode2' },
-  { name: 'Python',     level: 75, icon: 'Terminal'  },
-  { name: 'SQL',        level: 85, icon: 'Database'  },
-]
+
 
 export const tools = [
   { name: 'React',        category: 'Frontend', icon: 'Atom'        },
-  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone'  },
+  { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush'  },
   { name: 'Node.js',      category: 'Backend',  icon: 'Server'      },
+  { name: 'Express',      category: 'Backend',  icon: 'Zap'         },
+  { name: 'JavaFX',       category: 'Backend',  icon: 'Monitor'     },
+  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone'  },
+  { name: 'Electron',     category: 'Mobile',   icon: 'AppWindow'   },
   { name: 'Docker',       category: 'DevOps',   icon: 'Container'   },
   { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'   },
   { name: 'PostgreSQL',   category: 'Database', icon: 'Database'    },
+  { name: 'MySQL',        category: 'Database', icon: 'Database'    },
   { name: 'MongoDB',      category: 'Database', icon: 'CircleStack' },
-  { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush'  },
+  { name: 'SQLite',       category: 'Database', icon: 'HardDrive'   },
 ]
 
 export const humanLanguages = [

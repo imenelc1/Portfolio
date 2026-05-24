@@ -3,15 +3,6 @@ import { humanLanguages, tools } from '../../data/skills'
 import SectionHeader from '../ui/SectionHeader'
 import DynamicIcon from '../ui/DynamicIcon'
 
-const programmingLanguageTags = [
-  { name: 'Java',       category: 'Language', icon: 'Coffee'    },
-  { name: 'JavaScript', category: 'Language', icon: 'Zap'       },
-  { name: 'TypeScript', category: 'Language', icon: 'FileCode2' },
-  { name: 'Python',     category: 'Language', icon: 'Terminal'  },
-  { name: 'SQL',        category: 'Language', icon: 'Database'  },
-  { name: 'PHP',        category: 'Language', icon: 'Code2'     },
-  { name: 'Kotlin',     category: 'Language', icon: 'Smartphone'},
-]
 
 const categoryColors = {
   Language: '#2E5BFF',
@@ -137,7 +128,6 @@ export default function SkillsSection() {
               {t('skills.tools')}
             </h3>
 
-            <TagGroup label={langLabel} items={programmingLanguageTags} />
 
             {Object.entries(groupedTools).map(([category, items]) => (
               <TagGroup

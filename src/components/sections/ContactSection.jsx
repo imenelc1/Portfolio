@@ -1,8 +1,3 @@
-/* ============================================================
-   SECTION — Contact
-
-   ============================================================ */
-
 import { useLang } from '../../context/AppContext'
 import SectionHeader from '../ui/SectionHeader'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
@@ -35,7 +30,7 @@ export default function ContactSection() {
     <section
       id="contact"
       style={{
-        padding: '6rem 1.5rem',
+        padding: '4rem 1.5rem', 
         background: 'var(--bg-surface)',
         borderTop: '1px solid var(--border-color)',
       }}
@@ -47,12 +42,11 @@ export default function ContactSection() {
           align="center"
         />
 
-        {/* Liens sociaux en colonne — plus lisible avec les labels */}
         <div style={{
           display: 'flex',
           flexDirection: 'column',
           gap: '0.875rem',
-          marginTop: '2.5rem',
+          marginTop: '2rem',
         }}>
           {socialLinks.map(link => (
             <a
@@ -84,10 +78,7 @@ export default function ContactSection() {
                 e.currentTarget.style.transform = 'translateX(0)'
               }}
             >
-              {/* Icône */}
               <span style={{ flexShrink: 0 }}>{link.icon}</span>
-
-              {/* Texte */}
               <div>
                 <p style={{ fontWeight: 600, fontSize: '0.875rem', color: 'var(--text-primary)', marginBottom: '0.1rem' }}>
                   {link.name}
@@ -96,8 +87,6 @@ export default function ContactSection() {
                   {link.label}
                 </p>
               </div>
-
-              {/* Flèche à droite */}
               <span style={{ marginLeft: 'auto', fontSize: '1rem', opacity: 0.4 }}>→</span>
             </a>
           ))}

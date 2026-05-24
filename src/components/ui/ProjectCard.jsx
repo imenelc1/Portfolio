@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ImageGallery from './Imagegallery'
-import { GitBranch, ExternalLink } from 'lucide-react'
+import { GitBranch, ExternalLink, Code2 } from 'lucide-react'
 
 export default function ProjectCard({ project, lang, t, index = 0 }) {
   const [hovered, setHovered] = useState(false)
@@ -8,14 +8,11 @@ export default function ProjectCard({ project, lang, t, index = 0 }) {
   return (
     <article
       className="glass scroll-reveal"
-      /* Fix stagger : style inline pour le delay car nth-child
-         ne marche pas sur des éléments non-frères directs */
       style={{ '--reveal-delay': `${index * 0.1}s` }}
       data-delay={index * 0.1}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Wrapper interne pour le hover sans casser le scroll-reveal */}
       <div style={{
         borderRadius: '16px',
         overflow: 'hidden',
@@ -41,9 +38,8 @@ export default function ProjectCard({ project, lang, t, index = 0 }) {
               background: project.color + '18', border: `1px solid ${project.color}35`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               flexShrink: 0, color: project.color,
-              fontFamily: 'var(--font-grotesk)', fontWeight: 700, fontSize: '0.75rem',
             }}>
-              {'</>'}
+              <Code2 size={18} strokeWidth={2} />
             </div>
             <h3 style={{
               fontFamily: 'var(--font-grotesk)', fontWeight: 600,
