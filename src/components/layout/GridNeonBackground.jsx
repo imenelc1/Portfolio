@@ -8,96 +8,124 @@ export default function GridNeonBackground() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
 
-    const gridSize = 48 // Aligné pile sur tes 48px CSS
-    let width = (canvas.width = window.innerWidth)
-    let height = (canvas.height = window.innerHeight)
-    let activeLines = []
+    const GRID = 48
+    let W = (canvas.width = window.innerWidth)
+    let H = (canvas.height = window.innerHeight)
+    let dots = [], animId
+
+    const toRgba = (hex, a) => {
+      const r = parseInt(hex.slice(1,3),16)
+      const g = parseInt(hex.slice(3,5),16)
+      const b = parseInt(hex.slice(5,7),16)
+      return `rgba(${r},${g},${b},${a.toFixed(3)})`
+    }
+
+    const waves = [
+      { horiz: true,  pos: -120, speed: 0.35, width: 180, lineFrac: 0.30 },
+      { horiz: false, pos: -120, speed: 0.28, width: 160, lineFrac: 0.60 },
+      { horiz: true,  pos: 0,    speed: 0.30, width: 200, lineFrac: 0.65 },
+    ]
+
+    const buildDots = () => {
+      dots = []
+      const cols = Math.ceil(W / GRID) + 1
+      const rows = Math.ceil(H / GRID) + 1
+      for (let c = 1; c <= cols; c++) {
+        for (let r = 1; r <= rows; r++) {
+          if (Math.random() > 0.45) continue
+          dots.push({
+            x: c * GRID, y: r * GRID,
+            phase: Math.random() * Math.PI * 2,
+            speed: 0.0008 + Math.random() * 0.001,
+            max:   0.1 + Math.random() * 0.18,
+            col:   Math.random() > 0.5 ? '--accent' : '--violet',
+          })
+        }
+      }
+    }
 
     const handleResize = () => {
-      width = canvas.width = window.innerWidth
-      height = canvas.height = window.innerHeight
+      W = canvas.width = window.innerWidth
+      H = canvas.height = window.innerHeight
+      buildDots()
     }
     window.addEventListener('resize', handleResize)
+    buildDots()
 
-    // Fonction pour générer une bordure de carré qui s'allume
-    const triggerLine = () => {
-      const cols = Math.floor(width / gridSize)
-      const rows = Math.floor(height / gridSize)
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H)
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#2E5BFF'
+      const violet = getComputedStyle(document.documentElement).getPropertyValue('--violet').trim() || '#6D6BD4'
+      const cols = Math.ceil(W / GRID) + 1
+      const rows = Math.ceil(H / GRID) + 1
+      const t = performance.now()
 
-      // Choisir une intersection de départ au hasard
-      const col = Math.floor(Math.random() * cols)
-      const row = Math.floor(Math.random() * rows)
-      const x = col * gridSize
-      const y = row * gridSize
-
-      // Choisir une direction au hasard (0: horizontal vers la droite, 1: vertical vers le bas)
-      const isVertical = Math.random() > 0.5
-      
-      activeLines.push({
-        x1: x,
-        y1: y,
-        x2: isVertical ? x : x + gridSize,
-        y2: isVertical ? y + gridSize : y,
-        alpha: 1,
-        speed: 0.01 + Math.random() * 0.015, // Vitesse d'extinction du néon
-        lineWidth: 1.5 + Math.random() * 1 // Épaisseur de la ligne qui brille
-      })
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, width, height)
-
-      const accentColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--accent')
-        .trim() || '#2E5BFF'
-
-      // Fréquence d'allumage des bordures (ajuste le 0.08 si tu en veux plus ou moins)
-      if (Math.random() < 0.08 && activeLines.length < 20) {
-        triggerLine()
+      // grille
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'
+      ctx.lineWidth = 0.5
+      for (let c = 0; c <= cols; c++) {
+        ctx.beginPath(); ctx.moveTo(c*GRID, 0); ctx.lineTo(c*GRID, H); ctx.stroke()
+      }
+      for (let r = 0; r <= rows; r++) {
+        ctx.beginPath(); ctx.moveTo(0, r*GRID); ctx.lineTo(W, r*GRID); ctx.stroke()
       }
 
-      activeLines = activeLines.filter((line) => {
-        ctx.save()
-        
-        ctx.globalAlpha = line.alpha
-        ctx.strokeStyle = accentColor
-        ctx.lineWidth = line.lineWidth
-        
-        // Effet de lueur néon sur la ligne (glow effect)
-        ctx.shadowBlur = 8
-        ctx.shadowColor = accentColor
-        
+      // lueur centrale
+      const glow = ctx.createRadialGradient(W*.5, H*.4, 0, W*.5, H*.4, W*.55)
+      glow.addColorStop(0, 'rgba(46,91,255,0.04)')
+      glow.addColorStop(1, 'transparent')
+      ctx.fillStyle = glow
+      ctx.fillRect(0, 0, W, H)
+
+      // ondes lentes
+      for (const w of waves) {
+        w.pos += w.speed
+        const maxP = w.horiz ? W + w.width : H + w.width
+        if (w.pos - w.width > maxP) w.pos = -w.width
+
+        if (w.horiz) {
+          const y = Math.floor(rows * w.lineFrac) * GRID
+          const g2 = ctx.createLinearGradient(w.pos - w.width, y, w.pos + w.width, y)
+          g2.addColorStop(0, 'transparent')
+          g2.addColorStop(0.4, toRgba(accent, 0.25))
+          g2.addColorStop(0.6, toRgba(violet, 0.25))
+          g2.addColorStop(1, 'transparent')
+          ctx.strokeStyle = g2; ctx.lineWidth = 1
+          ctx.shadowBlur = 6; ctx.shadowColor = accent
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke()
+          ctx.shadowBlur = 0
+        } else {
+          const x = Math.floor(cols * w.lineFrac) * GRID
+          const g2 = ctx.createLinearGradient(x, w.pos - w.width, x, w.pos + w.width)
+          g2.addColorStop(0, 'transparent')
+          g2.addColorStop(0.4, toRgba(violet, 0.22))
+          g2.addColorStop(0.6, toRgba(accent, 0.22))
+          g2.addColorStop(1, 'transparent')
+          ctx.strokeStyle = g2; ctx.lineWidth = 1
+          ctx.shadowBlur = 6; ctx.shadowColor = violet
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke()
+          ctx.shadowBlur = 0
+        }
+      }
+
+      // points qui respirent
+      for (const p of dots) {
+        const col = p.col === '--accent' ? accent : violet
+        const alpha = (Math.sin(t * p.speed * 60 + p.phase) + 1) / 2 * p.max
+        if (alpha < 0.01) continue
         ctx.beginPath()
-        ctx.moveTo(line.x1, line.y1)
-        ctx.lineTo(line.x2, line.y2)
-        ctx.stroke()
-        
-        ctx.restore()
+        ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2)
+        ctx.fillStyle = toRgba(col, alpha)
+        ctx.shadowBlur = 4; ctx.shadowColor = col
+        ctx.fill(); ctx.shadowBlur = 0
+      }
 
-        // Diminution de l'opacité
-        line.alpha -= line.speed
-        return line.alpha > 0
-      })
-
-      requestAnimationFrame(animate)
+      animId = requestAnimationFrame(draw)
     }
 
-    animate()
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    draw()
+    return () => { window.removeEventListener('resize', handleResize); cancelAnimationFrame(animId) }
   }, [])
 
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0, 
-        pointerEvents: 'none',
-      }}
-    />
-  )
+  return <canvas ref={canvasRef} style={{ position:'fixed', inset:0, zIndex:0, pointerEvents:'none' }} />
 }
