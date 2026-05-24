@@ -25,21 +25,25 @@ export const tools = [
 
   // Mobile
   { name: 'React Native', category: 'Mobile',   icon: 'Smartphone' },
+  { name: 'Expo',         category: 'Mobile',   icon: 'Milestone'  }, 
   { name: 'Electron',     category: 'Mobile',   icon: 'Laptop'     },
 
-  // DevOps
+  // DevOps & Cloud Services
   { name: 'Docker',       category: 'DevOps',   icon: 'Container'  },
   { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'  },
+  { name: 'Firebase',     category: 'DevOps',   icon: 'Flame'      }, 
 
-  // Base de données
+  // Base de données & Validation
   { name: 'PostgreSQL',   category: 'Database', icon: 'Database'   },
   { name: 'MySQL',        category: 'Database', icon: 'Database'   },
   { name: 'MongoDB',      category: 'Database', icon: 'CircleStack'},
   { name: 'SQLite',       category: 'Database', icon: 'HardDrive'  },
+  { name: 'Zod',          category: 'Database', icon: 'ShieldCheck'}, 
+
   // Méthodes & IA
   { name: 'Prompt Engineering', category: 'AI',      icon: 'Sparkles'   },
   { name: 'Clean Architecture', category: 'Methods', icon: 'Layers'     },
-  { name: 'MVC', category: 'Methods', icon: 'Layers'     },
+  { name: 'MVC',                category: 'Methods', icon: 'Layers'     },
 ]
 export const humanLanguages = [
   {

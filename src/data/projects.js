@@ -65,6 +65,29 @@ export const projects = [
   demo: null,
   featured: true,
 },
+{
+    id: 'citiquest',
+    title: 'CitiQuest — Participation Citoyenne & Gamification',
+    images: [
+      '/projects/cityquest/choix.png',
+      '/projects/cityquest/map.png',
+      '/projects/cityquest/vote.png',
+      '/projects/cityquest/preuve.png',
+      '/projects/cityquest/validation.png',
+      '/projects/cityquest/gestionmission.png',
+      '/projects/cityquest/dashadmin.png',
+      '/projects/cityquest/gestionbadges.png',
+    ],
+    description: {
+      fr: 'Application mobile de participation citoyenne transformant les actions urbaines en missions gamifiées (XP, badges). Conçue en développement augmenté (React Native/Expo & Node.js) : géolocalisation, validation par preuves photo/QR Code, notifications push, architecture multi-rôles (Citoyen, Association, Admin) et validation stricte des données avec Zod.',
+      en: 'Mobile application for civic engagement transforming urban actions into gamified missions (XP, badges). Built using AI-assisted development (React Native/Expo & Node.js): geolocation, photo/QR code validation, push notifications, multi-role workspace (Citizen, Association, Admin), and strict data validation with Zod.'
+    },
+    tags: ['React Native', 'Expo 54', 'Node.js', 'MongoDB', 'Firebase Auth', 'Zod', 'Express'],
+    color: '#16A34A', 
+    github: 'https://github.com/imenelc1/citiQuest', 
+    demo: null,
+    featured: true,
+  },
  
 ]
 

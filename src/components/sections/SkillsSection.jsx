@@ -12,6 +12,8 @@ const categoryColors = {
   DevOps:   '#10B981',
   Database: '#F59E0B',
   Design:   '#EC4899',
+  AI:       '#EC4899', 
+  Methods:  '#64748B',  
 }
 
 function Tag({ name, category, icon }) {
