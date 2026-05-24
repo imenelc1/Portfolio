@@ -83,6 +83,7 @@ export default function SkillsSection() {
 
   /* Noms de catégories traduits */
   const categoryLabels = {
+    Language: lang === 'fr' ? 'Langages' : 'Languages',  
     Frontend: 'Frontend',
     Backend:  'Backend',
     Mobile:   'Mobile',

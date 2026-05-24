@@ -5,21 +5,42 @@
 
 
 export const tools = [
-  { name: 'React',        category: 'Frontend', icon: 'Atom'        },
-  { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush'  },
-  { name: 'Node.js',      category: 'Backend',  icon: 'Server'      },
-  { name: 'Express',      category: 'Backend',  icon: 'Zap'         },
-  { name: 'JavaFX',       category: 'Backend',  icon: 'Monitor'     },
-  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone'  },
-  { name: 'Electron',     category: 'Mobile',   icon: 'AppWindow'   },
-  { name: 'Docker',       category: 'DevOps',   icon: 'Container'   },
-  { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'   },
-  { name: 'PostgreSQL',   category: 'Database', icon: 'Database'    },
-  { name: 'MySQL',        category: 'Database', icon: 'Database'    },
-  { name: 'MongoDB',      category: 'Database', icon: 'CircleStack' },
-  { name: 'SQLite',       category: 'Database', icon: 'HardDrive'   },
-]
+  // Langages
+  { name: 'Java',        category: 'Language', icon: 'Coffee'     },
+  { name: 'JavaScript',  category: 'Language', icon: 'Zap'        },
+  { name: 'TypeScript',  category: 'Language', icon: 'FileCode2'  },
+  { name: 'PHP',         category: 'Language', icon: 'Code2'      },
+  { name: 'SQL',         category: 'Language', icon: 'Database'   },
+  { name: 'HTML',        category: 'Language', icon: 'Globe'      },
+  { name: 'CSS',         category: 'Language', icon: 'Paintbrush2'},
 
+  // Frontend
+  { name: 'React',        category: 'Frontend', icon: 'Atom'       },
+  { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush' },
+
+  // Backend
+  { name: 'Node.js',      category: 'Backend',  icon: 'Server'     },
+  { name: 'Express',      category: 'Backend',  icon: 'Zap'        },
+  { name: 'JavaFX',       category: 'Backend',  icon: 'Monitor'    },
+
+  // Mobile
+  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone' },
+  { name: 'Electron',     category: 'Mobile',   icon: 'Laptop'     },
+
+  // DevOps
+  { name: 'Docker',       category: 'DevOps',   icon: 'Container'  },
+  { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'  },
+
+  // Base de données
+  { name: 'PostgreSQL',   category: 'Database', icon: 'Database'   },
+  { name: 'MySQL',        category: 'Database', icon: 'Database'   },
+  { name: 'MongoDB',      category: 'Database', icon: 'CircleStack'},
+  { name: 'SQLite',       category: 'Database', icon: 'HardDrive'  },
+  // Méthodes & IA
+  { name: 'Prompt Engineering', category: 'AI',      icon: 'Sparkles'   },
+  { name: 'Clean Architecture', category: 'Methods', icon: 'Layers'     },
+  { name: 'MVC', category: 'Methods', icon: 'Layers'     },
+]
 export const humanLanguages = [
   {
     name:    { fr: 'Arabe',    en: 'Arabic'   },
