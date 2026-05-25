@@ -29,7 +29,7 @@ export const translations = {
 
     projects: {
       title:       'Projets',
-      subtitle:    'Projets personnels construits de A à Z — conception, architecture et réalisation.',
+      subtitle:    'Projets académiques et personnels — de la conception à l\'application finale.',
       view_code:   'Code',
       view_demo:   'Demo',
       view_all:    'Voir tous les projets sur GitHub',
@@ -104,7 +104,7 @@ export const translations = {
 
     projects: {
       title:       'Projects',
-      subtitle:    'Personal projects built end-to-end — design, architecture and implementation.',
+      subtitle:    'Academic and personal projects — from concept to working application.',
       view_code:   'Code',
       view_demo:   'Demo',
       view_all:    'View all projects on GitHub',
