@@ -1,16 +1,69 @@
-# React + Vite
+# 🌐 Portfolio — Lakhdar Chaouch Imene
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personnel développé avec React 19 et Vite, déployé sur Netlify.
 
-Currently, two official plugins are available:
+🔗 **[imenelc.netlify.app](https://imenelc.netlify.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Fonctionnalités
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Mode Dark / Light avec détection automatique des préférences système
+- Bilingue Français / Anglais
+- Fond animé (grille neon + canvas WebGL)
+- Entièrement responsive avec menu hamburger mobile
+- Galerie d'images avec lightbox, zoom et navigation clavier
+- SEO optimisé (Open Graph, Twitter Card, meta tags)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Sections
+
+| Section | Description |
+|---|---|
+| **Hero** | Présentation et spotlight dynamique |
+| **Projets** | Projets avec galerie de captures d'écran |
+| **Compétences** | Langages, outils & frameworks + langues humaines |
+| **Parcours** | Timeline expérience professionnelle & formation |
+| **Certifications** | Badges et certifications vérifiables en ligne |
+| **Contact** | Liens Email, GitHub, LinkedIn |
+
+---
+
+## Stack technique
+
+| Technologie | Usage |
+|---|---|
+| React 19 | UI & composants |
+| Vite 8 | Build tool |
+| Tailwind CSS 4 | Styles |
+| Lucide React + React Icons | Icônes |
+| Canvas API | Animation fond neon |
+| Netlify | Déploiement |
+
+---
+
+## Structure du projet
+
+```
+src/
+├── components/
+│   ├── layout/          # Navbar, Footer, GridNeonBackground
+│   ├── sections/        # HeroSection, ProjectsSection, SkillsSection...
+│   └── ui/              # ProjectCard, SectionHeader, DynamicIcon, Lightbox...
+├── context/
+│   └── AppContext.jsx   # ThemeContext + LangContext
+├── data/
+│   ├── projects.js      # Données des projets
+│   ├── skills.js        # Compétences & expériences
+│   └── Certifications.js
+├── hooks/
+│   └── useZoom.jsx      # Hook zoom & drag pour la lightbox
+├── i18n/
+│   └── translations.js  # Traductions FR / EN
+└── index.css            # Variables CSS, thèmes, animations
+```
+
+---
+
+© 2026 Lakhdar Chaouch Imene
