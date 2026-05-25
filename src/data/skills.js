@@ -71,11 +71,11 @@ export const humanLanguages = [
     percent: 70,
   },
   {
-    name:    { fr: 'Turc',     en: 'Turkish'  },
-    level:   { fr: 'Intermédiaire (B1)', en: 'Intermediate (B1)' },
-    icon:    'Compass',
-    percent: 50,
-  },
+  name:    { fr: 'Turc',     en: 'Turkish'  },
+  level:   { fr: 'Compréhension passive', en: 'Passive comprehension' },
+  icon:    'Compass',
+  percent: 40,
+},
 ]
 
 /* ============================================================
