@@ -6,7 +6,7 @@ Portfolio personnel développé avec React 19 et Vite, déployé sur Netlify.
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 - Mode Dark / Light avec détection automatique des préférences système
 - Bilingue Français / Anglais
