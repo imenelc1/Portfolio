@@ -14,6 +14,7 @@ const categoryColors = {
   Design:   '#EC4899',
   AI:       '#EC4899', 
   Methods:  '#64748B',  
+  DataViz: '#F2C811',
 }
 
 function Tag({ name, category, icon }) {
@@ -92,6 +93,7 @@ export default function SkillsSection() {
     DevOps:   'DevOps',
     Database: lang === 'fr' ? 'Base de données' : 'Database',
     Design:   'Design',
+    DataViz: 'Data Visualization',
   }
 
   const cardStyle = {

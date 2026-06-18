@@ -44,6 +44,10 @@ export const tools = [
   { name: 'Prompt Engineering', category: 'AI',      icon: 'Sparkles'   },
   { name: 'Clean Architecture', category: 'Methods', icon: 'Layers'     },
   { name: 'MVC',                category: 'Methods', icon: 'Layers'     },
+
+  //Data
+  { name: 'Power BI', category: 'DataViz', icon: 'BarChart2'  },
+  { name: 'DAX',      category: 'DataViz', icon: 'Calculator' }, 
 ]
 export const humanLanguages = [
   {

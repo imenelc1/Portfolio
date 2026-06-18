@@ -88,6 +88,22 @@ export const projects = [
     demo: null,
     featured: true,
   },
+  {
+  id: 'healthcare-dashboard',
+  title: 'Healthcare Analytics — Power BI',
+  images: [
+    '/projects/powerbi/dashboard.jpeg',
+  ], 
+  description: {
+    fr: 'Dashboard analytique End-to-End pour un réseau hospitalier simulé. Modélisation en étoile (Star Schema), mesures DAX avancées avec Time Intelligence (CALCULATE, DATEADD), et visualisation décisionnelle sur 55 000+ lignes de données patients.',
+    en: 'End-to-End analytical dashboard for a simulated hospital network. Star Schema modeling, advanced DAX measures with Time Intelligence (CALCULATE, DATEADD), and decision-making visualization on 55,000+ patient records.',
+  },
+  tags: ['Power BI', 'DAX', 'Power Query', 'Star Schema', 'Data Analytics'],
+  color: '#F2C811',
+  github: null,
+  demo: null,
+  featured: true,
+}
  
 ]
 
