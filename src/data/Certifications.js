@@ -83,4 +83,16 @@ export const certifications = [
     verified: true,
     inProgress: false,
   },
+  {
+    id: 'cisco-data-science-essentials',
+    type: 'certification',
+    title: 'Data Science Essentials with Python',
+    issuer: 'Cisco Networking Academy',
+    issuerIcon: 'Binary', 
+    date: { fr: '22 Juin 2026', en: 'June 22, 2026' },
+    badgeUrl: '/datascience_certification.pdf', 
+   color: '#007A87', 
+    verified: true,
+    inProgress: false,
+  },
 ]
