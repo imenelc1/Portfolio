@@ -89,6 +89,26 @@ export const projects = [
     featured: true,
   },
   {
+  id: 'revix',
+  title: 'Revix — Révision Intelligente & IA',
+  images: [
+    '/projects/revix/dashboard.png',
+    '/projects/revix/analyse.png',
+    '/projects/revix/calendrier.png',
+    '/projects/revix/planning.png',
+    '/projects/revix/chatbot.png',
+  ],
+  description: {
+    fr: 'Plateforme SaaS de révision intelligente transformant les cours PDF en outils d\'apprentissage. Inclut une analyse automatisée de documents, génération de flashcards/quiz, un planning adaptatif avec détection de conflits et un chatbot IA contextualisé. Architecture moderne avec authentification sécurisée via cookies HttpOnly et Google OAuth.',
+    en: 'Intelligent revision SaaS platform converting PDF study materials into concrete learning tools. Features automated document analysis, flashcards/quiz generation, an adaptive study planner, and a contextualized AI chatbot. Modern architecture with secure HttpOnly cookie authentication and Google OAuth.'
+  },
+  tags: ['Vue 3', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Pinia', 'Tailwind CSS', 'Groq API'],
+  color: '#6366F1', 
+  github: 'https://github.com/imenelc1/revix', 
+  demo: 'https://revix-app.netlify.app',
+  featured: true,
+},
+  {
   id: 'healthcare-dashboard',
   title: 'Healthcare Analytics — Power BI',
   images: [

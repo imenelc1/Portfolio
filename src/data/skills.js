@@ -15,18 +15,21 @@ export const tools = [
   { name: 'CSS',         category: 'Language', icon: 'Paintbrush2'},
 
   // Frontend
+  { name: 'Vue 3',        category: 'Frontend', icon: 'Code2'      }, 
+  { name: 'Pinia',        category: 'Frontend', icon: 'Component'  }, 
   { name: 'React',        category: 'Frontend', icon: 'Atom'       },
   { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush' },
 
   // Backend
   { name: 'Node.js',      category: 'Backend',  icon: 'Server'     },
   { name: 'Express',      category: 'Backend',  icon: 'Zap'        },
+  { name: 'Mongoose',     category: 'Backend',  icon: 'Link'       },
   { name: 'JavaFX',       category: 'Backend',  icon: 'Monitor'    },
 
   // Mobile
   { name: 'React Native', category: 'Mobile',   icon: 'Smartphone' },
   { name: 'Expo',         category: 'Mobile',   icon: 'Milestone'  }, 
-  { name: 'Electron',     category: 'Mobile',   icon: 'Laptop'     },
+  { name: 'Electron',     category: 'Desktop',   icon: 'Laptop'     },
 
   // DevOps & Cloud Services
   { name: 'Docker',       category: 'DevOps',   icon: 'Container'  },
@@ -41,6 +44,7 @@ export const tools = [
   { name: 'Zod',          category: 'Database', icon: 'ShieldCheck'}, 
 
   // Méthodes & IA
+  { name: 'Llama 3.3 / Groq',   category: 'AI', icon: 'Brain'      },
   { name: 'Prompt Engineering', category: 'AI',      icon: 'Sparkles'   },
   { name: 'Clean Architecture', category: 'Methods', icon: 'Layers'     },
   { name: 'MVC',                category: 'Methods', icon: 'Layers'     },
