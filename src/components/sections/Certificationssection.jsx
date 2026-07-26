@@ -159,14 +159,17 @@ export default function CertificationsSection() {
   const { t, lang } = useLang()
   const [activeTab, setActiveTab] = useState('certifications')
 
-  const certList  = certifications.filter(c => c.type === 'certification')
-  const badgeList = certifications.filter(c => c.type === 'badge')
+const certList   = certifications.filter(c => c.type === 'certification')
+const badgeList  = certifications.filter(c => c.type === 'badge')
+const trophyList = certifications.filter(c => c.type === 'trophy')
+  
   const displayCerts  = certList.length  > 0 ? certList  : certifications
   const displayBadges = badgeList.length > 0 ? badgeList : certifications
 
   const tabs = [
     { id: 'certifications', label: t('certifications.tab_certs') },
     { id: 'badges',         label: t('certifications.tab_badges') },
+    { id: 'trophies',       label: t('certifications.tab_trophies') || 'Trophées' },
   ]
 
   return (
@@ -199,10 +202,11 @@ export default function CertificationsSection() {
           ))}
         </div>
 
-        <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
-          {activeTab === 'certifications' && <HorizontalCarousel items={displayCerts} t={t} lang={lang} />}
-          {activeTab === 'badges'         && <HorizontalCarousel items={displayBadges} t={t} lang={lang} />}
-        </div>
+       <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
+  {activeTab === 'certifications' && <HorizontalCarousel items={certList} t={t} lang={lang} />}
+  {activeTab === 'badges'         && <HorizontalCarousel items={badgeList} t={t} lang={lang} />}
+  {activeTab === 'trophies'       && <HorizontalCarousel items={trophyList} t={t} lang={lang} />}
+</div>
       </div>
     </section>
   )

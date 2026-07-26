@@ -3,55 +3,57 @@
    ============================================================ */
 
 
-
 export const tools = [
   // Langages
   { name: 'Java',        category: 'Language', icon: 'Coffee'     },
+  { name: 'Python',      category: 'Language', icon: 'Code2'      },
   { name: 'JavaScript',  category: 'Language', icon: 'Zap'        },
   { name: 'TypeScript',  category: 'Language', icon: 'FileCode2'  },
-  { name: 'PHP',         category: 'Language', icon: 'Code2'      },
+  { name: 'PHP 8',       category: 'Language', icon: 'Code2'      },
   { name: 'SQL',         category: 'Language', icon: 'Database'   },
-  { name: 'HTML',        category: 'Language', icon: 'Globe'      },
-  { name: 'CSS',         category: 'Language', icon: 'Paintbrush2'},
+  { name: 'HTML5',       category: 'Language', icon: 'Globe'      },
+  { name: 'CSS3',        category: 'Language', icon: 'Paintbrush2'},
 
-  // Frontend
+  // Frontend & Mobile
   { name: 'Vue 3',        category: 'Frontend', icon: 'Code2'      }, 
   { name: 'Pinia',        category: 'Frontend', icon: 'Component'  }, 
   { name: 'React',        category: 'Frontend', icon: 'Atom'       },
   { name: 'Tailwind CSS', category: 'Frontend', icon: 'Paintbrush' },
+  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone' },
+  { name: 'Expo',         category: 'Mobile',   icon: 'Milestone'  }, 
+  { name: 'Electron',     category: 'Desktop',  icon: 'Laptop'     },
 
-  // Backend
+  // Backend & Architecture
   { name: 'Node.js',      category: 'Backend',  icon: 'Server'     },
   { name: 'Express',      category: 'Backend',  icon: 'Zap'        },
   { name: 'Mongoose',     category: 'Backend',  icon: 'Link'       },
   { name: 'JavaFX',       category: 'Backend',  icon: 'Monitor'    },
+  { name: 'Clean Architecture', category: 'Methods', icon: 'Layers'},
+  { name: 'MVC Pattern',  category: 'Methods',  icon: 'Layers'     },
 
-  // Mobile
-  { name: 'React Native', category: 'Mobile',   icon: 'Smartphone' },
-  { name: 'Expo',         category: 'Mobile',   icon: 'Milestone'  }, 
-  { name: 'Electron',     category: 'Desktop',   icon: 'Laptop'     },
+  // Data & Analytics (Complété !)
+  { name: 'Power BI',     category: 'DataViz',  icon: 'BarChart2'  },
+  { name: 'DAX',          category: 'DataViz',  icon: 'Calculator' }, 
+  { name: 'Tableau',      category: 'DataViz',  icon: 'PieChart'   }, 
+  { name: 'Excel / Power Query', category: 'DataViz', icon: 'FileSpreadsheet' }, 
 
-  // DevOps & Cloud Services
+  // Bases de données & ORM
+  { name: 'MySQL',        category: 'Database', icon: 'Database'   },
+  { name: 'PostgreSQL',   category: 'Database', icon: 'Database'   },
+  { name: 'MongoDB',      category: 'Database', icon: 'CircleStack'}, 
+  { name: 'SQLite',       category: 'Database', icon: 'HardDrive'  },
+  { name: 'Sequelize',    category: 'Database', icon: 'Link'       }, 
+  { name: 'Zod',          category: 'Database', icon: 'ShieldCheck'}, 
+
+  // DevOps, Cloud & Tests
   { name: 'Docker',       category: 'DevOps',   icon: 'Container'  },
   { name: 'Git',          category: 'DevOps',   icon: 'GitBranch'  },
   { name: 'Firebase',     category: 'DevOps',   icon: 'Flame'      }, 
+  { name: 'Vitest',       category: 'DevOps',   icon: 'CheckCircle'}, 
 
-  // Base de données & Validation
-  { name: 'PostgreSQL',   category: 'Database', icon: 'Database'   },
-  { name: 'MySQL',        category: 'Database', icon: 'Database'   },
-  { name: 'MongoDB',      category: 'Database', icon: 'CircleStack'},
-  { name: 'SQLite',       category: 'Database', icon: 'HardDrive'  },
-  { name: 'Zod',          category: 'Database', icon: 'ShieldCheck'}, 
-
-  // Méthodes & IA
-  { name: 'Llama 3.3 / Groq',   category: 'AI', icon: 'Brain'      },
-  { name: 'Prompt Engineering', category: 'AI',      icon: 'Sparkles'   },
-  { name: 'Clean Architecture', category: 'Methods', icon: 'Layers'     },
-  { name: 'MVC',                category: 'Methods', icon: 'Layers'     },
-
-  //Data
-  { name: 'Power BI', category: 'DataViz', icon: 'BarChart2'  },
-  { name: 'DAX',      category: 'DataViz', icon: 'Calculator' }, 
+  // IA & Automatisation
+  { name: 'Groq API / LLM', category: 'AI',      icon: 'Brain'      },
+  { name: 'Prompt Engineering', category: 'AI', icon: 'Sparkles'   },
 ]
 export const humanLanguages = [
   {

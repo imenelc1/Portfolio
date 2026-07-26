@@ -123,7 +123,25 @@ export const projects = [
   github: null,
   demo: null,
   featured: true,
+},
+{
+  id: 'ecommerce-sales-analysis',
+  title: 'Analyse des Ventes E-Commerce — Excel & Tableau',
+  images: [
+    '/projects/ecommerce-sales/excel-cleaning.png',
+    '/projects/ecommerce-sales/dashboard.png',
+  ],
+  description: {
+    fr: 'Analyse complète des ventes d\'un e-commerce britannique (2010-2011, ~540 000 transactions). Diagnostic et nettoyage des données sous Excel (valeurs manquantes, annulations, ajustements de stock via colonnes calculées), tableaux croisés dynamiques, puis dashboard interactif sous Tableau (CA par pays, évolution mensuelle, top produits).',
+    en: 'Full sales analysis of a UK e-commerce dataset (2010-2011, ~540,000 transactions). Data diagnosis and cleaning in Excel (missing values, cancellations, stock adjustments via calculated columns), pivot tables, then an interactive Tableau dashboard (revenue by country, monthly trend, top products).',
+  },
+  tags: ['Excel', 'Power Query', 'Tableau', 'Data Cleaning', 'Data Analytics'],
+  color: '#E97627',
+  github: null,
+  demo: 'https://public.tableau.com/views/AnalysedesventesE-commerceUK2010-2011/Tableaudebord1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+  featured: true,
 }
+
  
 ]
 

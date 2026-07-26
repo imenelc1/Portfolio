@@ -19,9 +19,7 @@ export const translations = {
       greeting:    'Bonjour, je suis',
       name:        'Lakhdar Chaouch Imene',
       title:       'Étudiante Ingénieure en Génie Logiciel',
-      description: `ING4 à l'Université de Béjaïa. Je conçois des architectures logicielles,
-                    décompose les problèmes complexes en modules clairs, et pilote les outils
-                    modernes — dont l'IA — pour transformer une idée en application fonctionnelle.`,
+    description: `Étudiante en 5e année de Génie Logiciel à l'Université de Béjaïa. Je conçois des architectures applicatives robustes, décompose les problèmes complexes en modules clairs, et allie développement, automatisation et Data Analysis — en tirant le meilleur parti de l'IA — pour transformer les données et les idées en solutions fonctionnelles.`,
       cta_primary:   'Voir mes projets',
       cta_secondary: 'Télécharger CV',
       scroll_hint:   'Défiler pour explorer',
@@ -57,6 +55,7 @@ export const translations = {
       subtitle:     'Apprentissage continu au-delà des cours.',
       tab_certs:    'Certifications',
       tab_badges:   'Badges',
+      tab_trophies: 'Trophées',
       verified:     'Vérifiable en ligne',
       in_progress:  'En cours',
       view_badge:   'Voir le badge',
@@ -94,9 +93,7 @@ export const translations = {
       greeting:    'Hello, I am',
       name:        'Lakhdar Chaouch Imene',
       title:       'Software Engineering Student',
-      description: `4th year Engineering student at Université de Béjaïa. I design software
-                    architectures, break down complex problems into clear modules, and leverage
-                    modern tools — including AI — to take an idea all the way to a working application.`,
+      description: `5th year Software Engineering student at Université de Béjaïa. I design robust software architectures, break down complex problems into clear modules, and bridge software development with Data Analytics — leveraging modern AI tools — to turn raw data and ideas into high-impact applications.`,
       cta_primary:   'View my projects',
       cta_secondary: 'Download CV',
       scroll_hint:   'Scroll to explore',
@@ -132,6 +129,7 @@ export const translations = {
       subtitle:     'Continuous learning beyond the classroom.',
       tab_certs:    'Certifications',
       tab_badges:   'Badges',
+     tab_trophies: 'Trophies',
       verified:     'Verifiable online',
       in_progress:  'In progress',
       view_badge:   'View badge',

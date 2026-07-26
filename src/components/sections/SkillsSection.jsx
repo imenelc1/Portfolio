@@ -86,16 +86,17 @@ export default function SkillsSection() {
   }, {})
 
   /* Noms de catégories traduits */
-  const categoryLabels = {
+ const categoryLabels = {
     Language: lang === 'fr' ? 'Langages' : 'Languages',  
     Frontend: 'Frontend',
     Backend:  'Backend',
     Mobile:   'Mobile',
     Desktop:  lang === 'fr' ? 'Applications Desktop' : 'Desktop Apps',
-    DevOps:   'DevOps',
-    Database: lang === 'fr' ? 'Base de données' : 'Database',
-    Design:   'Design',
-    DataViz: 'Data Visualization',
+    DevOps:   'DevOps & Cloud',
+    Database: lang === 'fr' ? 'Bases de données' : 'Databases',
+    DataViz:  lang === 'fr' ? 'Data & Analytics' : 'Data & Analytics',
+    AI:       lang === 'fr' ? 'Intelligence Artificielle' : 'Artificial Intelligence',
+    Methods:  lang === 'fr' ? 'Architecture & Méthodes' : 'Architecture & Methods',
   }
 
   const cardStyle = {
