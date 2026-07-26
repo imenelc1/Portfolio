@@ -163,8 +163,7 @@ const certList   = certifications.filter(c => c.type === 'certification')
 const badgeList  = certifications.filter(c => c.type === 'badge')
 const trophyList = certifications.filter(c => c.type === 'trophy')
   
-  const displayCerts  = certList.length  > 0 ? certList  : certifications
-  const displayBadges = badgeList.length > 0 ? badgeList : certifications
+
 
   const tabs = [
     { id: 'certifications', label: t('certifications.tab_certs') },

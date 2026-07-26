@@ -131,9 +131,9 @@ export const experiences = [
   {
     id: 'bac-degree',
     title: {
-      fr: 'Baccalauréat — Sciences Expérimentales',
-      en: 'High School Diploma — Experimental Sciences',
-    },
+  fr: 'Lycée — Sciences Expérimentales',
+  en: 'High School — Experimental Sciences',
+},
     company: 'Lycée Chouhada Annani — Béjaïa',
     period: {
       start: { fr: 'Sept 2019', en: 'Sept 2019' },
